@@ -9,7 +9,9 @@ function Home() {
                 <Search />
                 <Buttom type='playlist'/>
             </div>
-            
+            <div>
+                
+            </div>
         </main>
     )
 }
