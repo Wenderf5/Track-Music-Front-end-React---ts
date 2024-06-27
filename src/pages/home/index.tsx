@@ -10,9 +10,6 @@ function Home() {
                 <Search />
                 <Buttom type='playlist'/>
             </div>
-<<<<<<< HEAD
-            <div></div>
-=======
             <div className={style.divTopArtists}>
                 <h2>Top Artistas</h2>
                 <div className={style.containerTopArtists}>
@@ -24,7 +21,6 @@ function Home() {
                     <TopArtist />
                 </div>
             </div>
->>>>>>> dev
         </main>
     )
 }
