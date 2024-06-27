@@ -1,0 +1,14 @@
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ftArtist{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
