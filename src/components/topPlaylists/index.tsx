@@ -10,7 +10,7 @@ function TopPlaylist() {
     return (
         <main className={style.main}>
             <div className={style.ftPlaylist}>
-                <img src={capa6} style={{ width: "100%", borderRadius: "6px" }} alt="" />
+                <img src={capa4} style={{ width: "100%", borderRadius: "6px" }} alt="" />
             </div>
             <p style={{ cursor: "pointer" }}>Top Artista</p>
         </main>
