@@ -1,30 +1,81 @@
-
-.page{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, #101010, #1D1D1D);
-    min-width: 100vw;
-    min-height: 100vh;
+.page {
+    background: black;
+    width: 100vw;
+    height: 100vh;
 }
 
-.containerSearch{
-    width: 85%;
+.divPricipal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+.playlistBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5%;
+    height: 97%;
+    border-radius: 10px;
+    background: #111111;
+}
+
+.dashborad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(45deg, #111111, #1D1D1D, #232323);
+    border-radius: 10px;
+    width: 93%;
+    height: 97%;
+    overflow: auto;
+}
+
+.containerSearch {
+    margin-top: 10px;
+    width: 98%;
     display: flex;
     justify-content: space-between;
 }
 
-.divTopArtists{
-    width: 85%;
+.divTopArtists {
+    width: 98%;
     display: flex;
     flex-direction: column;
     color: white;
 }
 
-.containerTopArtists{
+.containerTopArtists {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 200px;
+}
+
+.divTopPlaylists {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.containerTopPlaylists {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1ab75e;
+    border-radius: 10px;
 }
