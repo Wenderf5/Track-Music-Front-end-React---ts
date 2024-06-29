@@ -1,5 +1,5 @@
 .page {
-    background: black;
+    background: #000000;
     width: 100vw;
     height: 100vh;
 }
@@ -21,6 +21,7 @@
     height: 97%;
     border-radius: 10px;
     background: #111111;
+    box-shadow: 0px 0px 10px rgb(8, 8, 8);
 }
 
 .dashborad {
@@ -28,11 +29,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background: linear-gradient(45deg, #111111, #1D1D1D, #232323);
+    background: linear-gradient(to bottom, #111111, #171717 60%);
     border-radius: 10px;
     width: 93%;
     height: 97%;
     overflow: auto;
+    box-shadow: 0px 0px 10px rgb(8, 8, 8);
 }
 
 .containerSearch {
@@ -70,7 +72,7 @@
     height: 200px;
 }
 
-.divMusicBar{
+.divMusicBar {
     display: flex;
     align-items: center;
     justify-content: space-around;

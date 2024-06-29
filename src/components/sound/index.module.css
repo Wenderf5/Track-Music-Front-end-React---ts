@@ -8,9 +8,12 @@
 }
 
 .inputRange {
-    width: 100px;
-    height: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 150px;
+    height: 3px;
     border-radius: 10px;
-    margin-right: 2%;
+    margin-right: 4%;
 }
 

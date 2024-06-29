@@ -1,11 +1,27 @@
 import style from './index.module.css';
-import iconeSound from '../../assets/icons/volume-full-solid-240.png'
+import { useState } from 'react';
+import { Volume2 } from 'lucide-react';
+import Slider from '@mui/material/Slider';
 
-function Sound(){
-    return(
+function Sound() {
+    const [value, setValue] = useState<number>(30);
+
+    const handleChange = (event: Event, newValue: number | number[]) => {
+        setValue(newValue as number);
+    };
+
+    return (
         <main className={style.main}>
-            <img src={iconeSound} width={"20px"} alt="" />
-            <input className={style.inputRange} type="range" />
+            <div className={style.inputRange}>
+                <Volume2 color='white' />
+                <Slider aria-label="Volume" value={value} onChange={handleChange} sx={{
+                    color: 'white',
+                    height: "2px",
+                    '& .MuiSlider-thumb': {
+                        display: "none"
+                    }
+                }} />
+            </div>
         </main>
     )
 }

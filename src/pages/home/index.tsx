@@ -7,6 +7,13 @@ import MusicMenu from '../../components/musicMenu';
 import MultiMedia from '../../components/multiMedia';
 import Sound from '../../components/sound';
 
+import capa1 from '../../assets/img/Capas/500x500-000000-80-0-0.jpg';
+import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
+import capa3 from '../../assets/img/Capas/500x500-000000-80-0-0 (2).jpg';
+import capa4 from '../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
+import capa5 from '../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
+import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
+
 function Home() {
     return (
         <main className={style.page}>
@@ -21,23 +28,25 @@ function Home() {
                     <div className={style.divTopArtists}>
                         <h2>Artistas em alta</h2>
                         <div className={style.containerTopArtists}>
-                            <TopArtist />
-                            <TopArtist />
-                            <TopArtist />
-                            <TopArtist />
-                            <TopArtist />
-                            <TopArtist />
+                            <TopArtist img={capa1}/>
+                            <TopArtist img={capa2}/>
+                            <TopArtist img={capa3}/>
+                            <TopArtist img={capa4}/>
+                            <TopArtist img={capa5}/>
+                            <TopArtist img={capa6}/>
+                            <TopArtist img={capa1}/>
+                            <TopArtist img={capa4}/>
                         </div>
                     </div>
                     <div className={style.divTopPlaylists}>
                         <h2>Playlists em alta</h2>
                         <div className={style.containerTopPlaylists}>
-                            <TopPlaylist />
-                            <TopPlaylist />
-                            <TopPlaylist />
-                            <TopPlaylist />
-                            <TopPlaylist />
-                            <TopPlaylist />
+                            <TopPlaylist img={capa6}/>
+                            <TopPlaylist img={capa5}/>
+                            <TopPlaylist img={capa4}/>
+                            <TopPlaylist img={capa3}/>
+                            <TopPlaylist img={capa2}/>
+                            <TopPlaylist img={capa1}/>
                         </div>
                     </div>
                 </div>
