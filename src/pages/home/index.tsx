@@ -3,6 +3,9 @@ import Search from '../../components/search';
 import Buttom from '../../components/buttom';
 import TopArtist from '../../components/topArtist';
 import TopPlaylist from '../../components/topPlaylists';
+import MusicMenu from '../../components/musicMenu';
+import MultiMedia from '../../components/multiMedia';
+import Sound from '../../components/sound';
 
 function Home() {
     return (
@@ -38,6 +41,11 @@ function Home() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={style.divMusicBar}>
+                <MusicMenu />
+                <MultiMedia />
+                <Sound />
             </div>
         </main>
     )

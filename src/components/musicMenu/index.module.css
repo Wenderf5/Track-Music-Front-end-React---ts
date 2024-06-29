@@ -1,0 +1,28 @@
+
+.main{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 33.33%;
+    height: 100%;
+}
+
+.containerFt{
+    width: 13%;
+    height: 70%;
+    margin-left: 3%;
+    border-radius: 10px;
+}
+
+.containerMusicName{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.txtGroupName{
+    color: #8e8e8e;
+    font-size: 0.9rem;
+}
