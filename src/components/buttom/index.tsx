@@ -1,5 +1,6 @@
 import style from './index.module.css';
 import iconePlaylist from '../../assets/icons/playlist-solid-240.png';
+import { ListVideo } from 'lucide-react';
 
 interface props {
     type: string
@@ -12,7 +13,7 @@ function Buttom(props: props) {
             className={props.type === 'playlist' ? style.playlist : ""}
         >
             {
-                props.type === 'playlist' && <img src={iconePlaylist} width={"100%"} height={"100%"} alt="playlist" />
+                props.type === 'playlist' && <ListVideo color='#989898' size={30}/>
             }
         </button>
     )

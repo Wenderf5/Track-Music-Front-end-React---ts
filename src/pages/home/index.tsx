@@ -24,12 +24,12 @@ function Home() {
                         <Buttom type='playlist' />
                     </div>
                     <div className={style.divPlaylist}>
-                        <Playlist capa={capa1} />
+                        <Playlist capa={capa6} />
                         <Playlist capa={capa2} />
                         <Playlist capa={capa3} />
                         <Playlist capa={capa4} />
                         <Playlist capa={capa5} />
-                        <Playlist capa={capa6} />
+                        <Playlist capa={capa1} />
                     </div>
                 </div>
                 <div className={style.dashborad}>
