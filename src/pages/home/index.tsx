@@ -58,6 +58,8 @@ function Home() {
                             <TopPlaylist img={capa3} />
                             <TopPlaylist img={capa2} />
                             <TopPlaylist img={capa1} />
+                            <TopPlaylist img={capa3} />
+                            <TopPlaylist img={capa6} />
                         </div>
                     </div>
                 </div>
