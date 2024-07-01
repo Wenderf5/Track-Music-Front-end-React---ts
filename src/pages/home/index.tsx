@@ -15,6 +15,7 @@ import capa4 from '../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 import capa5 from '../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
 import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 import InfoMusic from '../../components/infoMusic';
+import Music from '../../components/music';
 
 function Home() {
     return (
@@ -59,9 +60,28 @@ function Home() {
                             <TopPlaylist img={capa1} />
                         </div>
                     </div>
+                    <div className={style.divTopMusics}>
+                        <h2>Musicas em alta</h2>
+                        <div className={style.containerTopMusics}>
+                            <Music img={capa2}/>
+                            <Music img={capa1}/>
+                            <Music img={capa6}/>
+                            <Music img={capa5}/>
+                            <Music img={capa4}/>
+                            <Music img={capa3}/>
+                            <Music img={capa2}/>
+                            <Music img={capa1}/>
+                            <Music img={capa6}/>
+                            <Music img={capa5}/>
+                            <Music img={capa4}/>
+                            <Music img={capa3}/>
+                            <Music img={capa2}/>
+                            <Music img={capa1}/>
+                        </div>
+                    </div>
                 </div>
                 <div className={style.infoMusicBar}>
-                    <InfoMusic img={capa2}/>
+                    <InfoMusic img={capa2} />
                 </div>
             </div>
             <div className={style.divMusicBar}>
