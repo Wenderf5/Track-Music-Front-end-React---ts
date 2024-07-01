@@ -1,8 +1,8 @@
 import './App.css';
-import AppRoutes from "./routes/AppRoutes";
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  return (<AppRoutes />)
+  return (<Outlet />)
 }
 
 export default App

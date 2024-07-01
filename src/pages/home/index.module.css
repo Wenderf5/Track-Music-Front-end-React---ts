@@ -31,10 +31,17 @@
     justify-content: space-around;
     background: linear-gradient(to bottom, #111111, #171717 60%);
     border-radius: 10px;
-    width: 93%;
+    width: 67.5%;
     height: 97%;
     overflow: auto;
     box-shadow: 0px 0px 10px rgb(8, 8, 8);
+}
+
+.infoMusicBar{
+    width: 25%;
+    height: 97%;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #111111, #171717 60%);
 }
 
 .containerSearch {
