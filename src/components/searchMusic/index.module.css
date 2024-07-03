@@ -1,0 +1,7 @@
+.main{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}

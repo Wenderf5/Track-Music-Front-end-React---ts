@@ -9,7 +9,7 @@ interface props {
     img: any
 }
 
-function Music(props: props) {
+function TopMusic(props: props) {
     return (
         <main className={style.main}>
             <div className={style.imgMusic}>
@@ -28,4 +28,4 @@ function Music(props: props) {
     )
 }
 
-export default Music
+export default TopMusic

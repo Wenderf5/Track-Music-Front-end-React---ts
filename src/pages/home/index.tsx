@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import style from './index.module.css';
 import Search from '../../components/search';
 import Buttom from '../../components/buttom';
@@ -15,9 +16,12 @@ import capa4 from '../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 import capa5 from '../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
 import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 import InfoMusic from '../../components/infoMusic';
-import Music from '../../components/music';
+import TopMusic from '../../components/topMusic';
+import SearchMusic from '../../components/searchMusic';
 
 function Home() {
+    const [search, setSearch] = useState(false);
+
     return (
         <main className={style.page}>
             <div className={style.divPricipal}>
@@ -38,47 +42,54 @@ function Home() {
                     <div className={style.containerSearch}>
                         <Search />
                     </div>
-                    <div className={style.divTopArtists}>
-                        <h2>Artistas em alta</h2>
-                        <div className={style.containerTopArtists}>
-                            <TopArtist img={capa1} />
-                            <TopArtist img={capa2} />
-                            <TopArtist img={capa3} />
-                            <TopArtist img={capa4} />
-                            <TopArtist img={capa5} />
-                            <TopArtist img={capa6} />
-                        </div>
-                    </div>
-                    <div className={style.divTopPlaylists}>
-                        <h2>Playlists em alta</h2>
-                        <div className={style.containerTopPlaylists}>
-                            <TopPlaylist img={capa6} />
-                            <TopPlaylist img={capa5} />
-                            <TopPlaylist img={capa4} />
-                            <TopPlaylist img={capa3} />
-                            <TopPlaylist img={capa2} />
-                            <TopPlaylist img={capa1} />
-                        </div>
-                    </div>
-                    <div className={style.divTopMusics}>
-                        <h2>Musicas em alta</h2>
-                        <div className={style.containerTopMusics}>
-                            <Music img={capa2}/>
-                            <Music img={capa1}/>
-                            <Music img={capa6}/>
-                            <Music img={capa5}/>
-                            <Music img={capa4}/>
-                            <Music img={capa3}/>
-                            <Music img={capa2}/>
-                            <Music img={capa1}/>
-                            <Music img={capa6}/>
-                            <Music img={capa5}/>
-                            <Music img={capa4}/>
-                            <Music img={capa3}/>
-                            <Music img={capa2}/>
-                            <Music img={capa1}/>
-                        </div>
-                    </div>
+                    {!search && (
+                        <>
+                            <div className={style.divTopArtists}>
+                                <h2>Artistas em alta</h2>
+                                <div className={style.containerTopArtists}>
+                                    <TopArtist img={capa1} />
+                                    <TopArtist img={capa2} />
+                                    <TopArtist img={capa3} />
+                                    <TopArtist img={capa4} />
+                                    <TopArtist img={capa5} />
+                                    <TopArtist img={capa6} />
+                                </div>
+                            </div>
+                            <div className={style.divTopPlaylists}>
+                                <h2>Playlists em alta</h2>
+                                <div className={style.containerTopPlaylists}>
+                                    <TopPlaylist img={capa6} />
+                                    <TopPlaylist img={capa5} />
+                                    <TopPlaylist img={capa4} />
+                                    <TopPlaylist img={capa3} />
+                                    <TopPlaylist img={capa2} />
+                                    <TopPlaylist img={capa1} />
+                                </div>
+                            </div>
+                            <div className={style.divTopMusics}>
+                                <h2>Musicas em alta</h2>
+                                <div className={style.containerTopMusics}>
+                                    <TopMusic img={capa2} />
+                                    <TopMusic img={capa1} />
+                                    <TopMusic img={capa6} />
+                                    <TopMusic img={capa5} />
+                                    <TopMusic img={capa4} />
+                                    <TopMusic img={capa3} />
+                                    <TopMusic img={capa2} />
+                                    <TopMusic img={capa1} />
+                                    <TopMusic img={capa6} />
+                                    <TopMusic img={capa5} />
+                                    <TopMusic img={capa4} />
+                                    <TopMusic img={capa3} />
+                                    <TopMusic img={capa2} />
+                                    <TopMusic img={capa1} />
+                                </div>
+                            </div>
+                        </>
+                    )}
+                    {search && (
+                        <SearchMusic />
+                    )}
                 </div>
                 <div className={style.infoMusicBar}>
                     <InfoMusic img={capa2} />
