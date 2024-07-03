@@ -13,16 +13,16 @@ function Music(props: props) {
     return (
         <main className={style.main}>
             <div className={style.imgMusic}>
-                <img width={"100%"} height={"100%"} style={{ borderRadius: "3px" }} src={props.img} alt="" />
+                <img width={"100%"} height={"100%"} style={{ borderRadius: "3px" }} src={props.img} alt="Musica" />
             </div>
             <div className={style.divInfo}>
                 <span>Paranoid</span>
                 <span className={style.groupName}>Black Sabbath</span>
             </div>
             <div className={style.divMultMedia}>
-                <img src={iconePlus} width={"25px"} style={{ cursor: "pointer" }} alt="" />
-                <img src={iconePlay} width={"25px"} style={{ cursor: "pointer" }} alt="" />
-                <img src={iconeDeezer} width={"23px"} style={{ cursor: "pointer" }} alt="" />
+                <img src={iconePlus} width={"25px"} style={{ cursor: "pointer" }} alt="Adicionar a playlist" />
+                <img src={iconePlay} width={"25px"} style={{ cursor: "pointer" }} alt="Play" />
+                <img src={iconeDeezer} width={"23px"} style={{ cursor: "pointer" }} alt="Tocando" />
             </div>
         </main>
     )

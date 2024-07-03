@@ -119,7 +119,6 @@
 
 ::-webkit-scrollbar {
     width: 5px;
-    display: none;
 }
 
 ::-webkit-scrollbar-thumb {
