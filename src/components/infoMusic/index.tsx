@@ -1,4 +1,5 @@
 import style from './index.module.css';
+import Buttom from '../button';
 import { ChevronDown } from 'lucide-react';
 
 interface props {
@@ -20,7 +21,7 @@ function InfoMusic(props: props) {
                 <span className={style.infoMusic}>Data de lançamento: 18/03/2005</span>
             </div>
             <div className={style.text}>
-                <span className={style.verAlbum}>Ver Album <ChevronDown /></span>
+                <span className={style.verAlbum}>Ver Album <Buttom type='viewMore' icone={<ChevronDown color='#999999'/>} /></span>
             </div>
         </main>
     )

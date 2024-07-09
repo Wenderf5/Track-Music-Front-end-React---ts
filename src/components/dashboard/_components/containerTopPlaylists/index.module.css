@@ -1,0 +1,13 @@
+.divTopPlaylists {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.containerTopPlaylists {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+}
