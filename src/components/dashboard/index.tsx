@@ -18,7 +18,6 @@ function Dashboard() {
                 <>
                     <ContainerTopArtists />
                     <ContainerTopPlaylists />
-                    <ContainerTopMusic />
                 </>
             )}
             {search && (

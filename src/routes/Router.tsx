@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ValorContext } from "../context/context";
+import { ValorContext } from "../context/musics";
+import { CurrentMusicContextProvider } from "../context/currentMusic";
 import App from "../App";
 import Home from "../pages/home";
 
@@ -11,9 +12,11 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: (
-                    <ValorContext>
-                        <Home />
-                    </ValorContext>
+                    <CurrentMusicContextProvider>
+                        <ValorContext>
+                            <Home />
+                        </ValorContext>
+                    </CurrentMusicContextProvider>
                 )
             }
         ]
