@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 
 interface contexType {
-    track: any
-    setTrack: any
+    currentMusic: any
+    setCurrentMusic: any
 }
 
 export const CurrentMusicContext = createContext<contexType | undefined>(undefined);
 
 export function CurrentMusicContextProvider({ children }: { children: React.ReactNode }) {
-    const [track, setTrack] = useState<any>(undefined);
+    const [currentMusic, setCurrentMusic] = useState<any>(undefined);
 
     return (
-        <CurrentMusicContext.Provider value={{ track, setTrack }}>
+        <CurrentMusicContext.Provider value={{ currentMusic, setCurrentMusic }}>
             {children}
         </CurrentMusicContext.Provider>
     )

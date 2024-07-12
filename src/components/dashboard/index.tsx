@@ -7,20 +7,20 @@ import ContainerTopMusic from './_components/containerTopMusic';
 import ContainerSearchMusic from '../containerSearchMusic';
 
 function Dashboard() {
-    const [search, setSearch] = useState(false);
+    const [containerSearchIsVisible, setContainerSearchIsVisible] = useState(false);
 
     return (
         <div className={style.dashborad}>
             <div className={style.containerSearch}>
-                <Search setSearch={setSearch} />
+                <Search setContainerSearchIsVisible={setContainerSearchIsVisible} />
             </div>
-            {!search && (
+            {!containerSearchIsVisible && (
                 <>
                     <ContainerTopArtists />
                     <ContainerTopPlaylists />
                 </>
             )}
-            {search && (
+            {containerSearchIsVisible && (
                 <ContainerSearchMusic />
             )}
         </div>

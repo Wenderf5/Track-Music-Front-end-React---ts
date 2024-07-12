@@ -1,20 +1,20 @@
 import style from './index.module.css';
-import TopMusic from '../Music';
+import Music from '../Music';
 import { useContext } from 'react';
 import { MusicsContext } from '../../context/musics';
 
 function ContainerSearchMusic() {
-    const context = useContext(MusicsContext);
-    if (!context) {
+    const musicsContext = useContext(MusicsContext);
+    if (!musicsContext) {
         throw new Error("Erro no context");
     }
-    const { valor } = context;
+    const { musics } = musicsContext;
 
     return (
         <main className={style.main}>
             <h3>Resultado da pesquisa:</h3>
-            {valor.data.map((track: object, index: any) => (
-                <TopMusic key={index} track={track} />
+            {musics.data.map((track: object, index: number) => (
+                <Music key={index} track={track} />
             ))}
         </main>
     )

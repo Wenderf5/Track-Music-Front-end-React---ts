@@ -5,33 +5,60 @@ import iconePause from '../../assets/icons/pause-regular-240.png';
 import iconePlus from '../../assets/icons/plus-regular-240.png';
 import iconeDeezerActive from '../../assets/icons/deezer-logo-active-240.png';
 import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
-import { useRef, useState, useContext } from 'react';
+import { useRef, useState, useContext, useEffect, useCallback } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
+import { VolumeContext } from '../../context/volumeContext';
 
 interface props {
     track: any
+    key: number
 }
 
-function TopMusic({ track }: props) {
+function Music({ track }: props) {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
         throw new Error("Erro no context")
     }
-    const { setTrack } = currentMusicContext;
+    const { setCurrentMusic } = currentMusicContext;
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const [isPlaying, setIsplaying] = useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const audio = audioRef.current;
+    
+    console.log(audio?.duration)
 
-    function togglePlay() {
+    const togglePlay = useCallback(() => {
         const audio = audioRef.current;
-        if (isPlaying && audio != null) {
-            audio.pause();
-            setIsplaying(false)
-        } else if (!isPlaying && audio != null) {
-            audio.play();
-            setIsplaying(true)
+        if (audio) {
+            if (isPlaying) {
+                audio.pause();
+                setIsPlaying(false);
+            } else {
+                audio.play();
+                setIsPlaying(true);
+            }
+            setCurrentMusic(track);
         }
-        setTrack(track);
+    }, [isPlaying, track, setCurrentMusic]);
+
+    const volumeContext = useContext(VolumeContext);
+    if (!volumeContext) {
+        throw new Error("Erro no context");
     }
+    const { volumeCon, volumeMutedCon } = volumeContext;
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.volume = volumeCon / 100;
+        }
+    }, [volumeCon]);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.muted = volumeMutedCon;
+        }
+    }, [volumeMutedCon]);
 
     return (
         <main className={style.main} onClick={togglePlay}>
@@ -67,4 +94,4 @@ function TopMusic({ track }: props) {
     )
 }
 
-export default TopMusic
+export default Music;
