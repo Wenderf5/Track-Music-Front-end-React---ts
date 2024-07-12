@@ -17,18 +17,25 @@ interface props {
 function Music({ track }: props) {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
-        throw new Error("Erro no context")
+        throw new Error("Erro no context");
     }
-    const { setCurrentMusic } = currentMusicContext;
+    const {
+        setCurrentMusic,
+        setCurrentMusicDuration,
+        setCurrentMusicTime,
+        setCurrentMusicTooglePlay,
+        setCurrentMusicIsPlaying,
+        setAudioRef,
+    } = currentMusicContext;
+
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
-    const audio = audioRef.current;
     
-    console.log(audio?.duration)
-
     const togglePlay = useCallback(() => {
         const audio = audioRef.current;
+        setAudioRef(audioRef);
         if (audio) {
+            setCurrentMusicDuration(Math.round(audio.duration));
             if (isPlaying) {
                 audio.pause();
                 setIsPlaying(false);
@@ -38,7 +45,25 @@ function Music({ track }: props) {
             }
             setCurrentMusic(track);
         }
-    }, [isPlaying, track, setCurrentMusic]);
+    }, [isPlaying, track, setCurrentMusic, setCurrentMusicDuration]);
+
+    useEffect(() => {
+        setCurrentMusicTooglePlay(() => togglePlay);
+        setCurrentMusicIsPlaying(isPlaying);
+    }, [togglePlay, isPlaying, setCurrentMusicTooglePlay, setCurrentMusicIsPlaying]);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (audio) {
+            const handleTimeUpdate = () => {
+                setCurrentMusicTime(Math.round(audio.currentTime));
+            }
+            audio.addEventListener('timeupdate', handleTimeUpdate);
+            return () => {
+                audio.removeEventListener('timeupdate', handleTimeUpdate);
+            };
+        }
+    }, [setCurrentMusicTime]);
 
     const volumeContext = useContext(VolumeContext);
     if (!volumeContext) {
@@ -91,7 +116,7 @@ function Music({ track }: props) {
             </div>
             <audio ref={audioRef} src={track.preview}></audio>
         </main>
-    )
+    );
 }
 
 export default Music;
