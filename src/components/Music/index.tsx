@@ -9,12 +9,12 @@ import { useRef, useState, useContext, useEffect, useCallback } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
 
-interface props {
-    track: any
-    key: number
+interface Props {
+    track: any;
+    key: number;
 }
 
-function Music({ track }: props) {
+function Music({ track }: Props) {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
         throw new Error("Erro no context");
@@ -26,39 +26,62 @@ function Music({ track }: props) {
         setCurrentMusicTooglePlay,
         setCurrentMusicIsPlaying,
         setAudioRef,
+        currentMusic,
     } = currentMusicContext;
 
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
-    
-    const togglePlay = useCallback(() => {
+
+    const playPause = useCallback(() => {
         const audio = audioRef.current;
         setAudioRef(audioRef);
-        if (audio) {
-            setCurrentMusicDuration(Math.round(audio.duration));
-            if (isPlaying) {
-                audio.pause();
-                setIsPlaying(false);
-            } else {
-                audio.play();
-                setIsPlaying(true);
-            }
-            setCurrentMusic(track);
+        if (!audio) {
+            return;
         }
-    }, [isPlaying, track, setCurrentMusic, setCurrentMusicDuration]);
+
+        if (isPlaying) {
+            audio.pause();
+            setIsPlaying(false);
+        } else {
+            const allAudioPlayers = document.querySelectorAll('audio');
+            allAudioPlayers.forEach(player => {
+                if (player !== audio) {
+                    player.pause();
+                    player.currentTime = 0;
+                }
+            });
+
+            audio.play().then(() => {
+                setIsPlaying(true);
+            }).catch((error) => {
+                console.error("Erro ao tocar a música:", error);
+            });
+        }
+
+        setCurrentMusic(track);
+        setCurrentMusicDuration(Math.round(audio.duration));
+    }, [isPlaying, track, setCurrentMusic, setCurrentMusicDuration, setAudioRef]);
+
+    const handlePause = () => {
+        setIsPlaying(false);
+    };
 
     useEffect(() => {
-        setCurrentMusicTooglePlay(() => togglePlay);
+        setCurrentMusicTooglePlay(() => playPause);
         setCurrentMusicIsPlaying(isPlaying);
-    }, [togglePlay, isPlaying, setCurrentMusicTooglePlay, setCurrentMusicIsPlaying]);
+    }, [playPause, isPlaying, setCurrentMusicTooglePlay, setCurrentMusicIsPlaying]);
 
     useEffect(() => {
         const audio = audioRef.current;
         if (audio) {
             const handleTimeUpdate = () => {
                 setCurrentMusicTime(Math.round(audio.currentTime));
-            }
+            };
+
             audio.addEventListener('timeupdate', handleTimeUpdate);
+            audio.addEventListener('ended', ()=>{
+                audio.currentTime = 0
+            });
             return () => {
                 audio.removeEventListener('timeupdate', handleTimeUpdate);
             };
@@ -85,8 +108,17 @@ function Music({ track }: props) {
         }
     }, [volumeMutedCon]);
 
+    function reloadMusic() {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.load();
+            audio.play().then(() => setIsPlaying(true));
+        }
+        setCurrentMusic(track);
+    }
+
     return (
-        <main className={style.main} onClick={togglePlay}>
+        <main className={style.main} onClick={isPlaying ? reloadMusic : playPause}>
             <div className={style.imgMusic}>
                 <img
                     width="100%"
@@ -107,14 +139,14 @@ function Music({ track }: props) {
                 />
                 <Buttom
                     type='music'
-                    icone={<img src={isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={isPlaying ? "Pause" : "Play"} />}
+                    icone={<img src={currentMusic === track && isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={currentMusic === track && isPlaying ? "Pause" : "Play"} />}
                 />
                 <Buttom
                     type='music'
-                    icone={<img src={isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
+                    icone={<img src={currentMusic === track && isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
                 />
             </div>
-            <audio ref={audioRef} src={track.preview}></audio>
+            <audio ref={audioRef} src={track.preview} onPause={handlePause}></audio>
         </main>
     );
 }

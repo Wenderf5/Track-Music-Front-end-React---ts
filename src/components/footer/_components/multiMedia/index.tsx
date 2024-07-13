@@ -25,7 +25,7 @@ function MultiMedia() {
     const handleChange = (event: Event, newValue: number | number[]) => {
         const newTime = newValue as number;
         setCurrentMusicTime(newTime);
-        const audio = audioRef.current;
+        const audio = audioRef?.current;
         if (audio) {
             audio.currentTime = newTime;
         }
