@@ -4,7 +4,7 @@ import next from '../../../../assets/icons/skip-next-regular-240.png';
 import pause from '../../../../assets/icons/pause.png';
 import Play from '../../../../assets/icons/play.png';
 import back from '../../../../assets/icons/skip-previous-regular-240.png';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { CurrentMusicContext } from '../../../../context/currentMusic';
 import Slider from '@mui/material/Slider';
 
