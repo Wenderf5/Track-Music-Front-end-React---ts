@@ -11,7 +11,6 @@ import { VolumeContext } from '../../context/volumeContext';
 
 interface Props {
     track: any;
-    key: number;
 }
 
 function Music({ track }: Props) {
@@ -79,7 +78,7 @@ function Music({ track }: Props) {
             };
 
             audio.addEventListener('timeupdate', handleTimeUpdate);
-            audio.addEventListener('ended', ()=>{
+            audio.addEventListener('ended', () => {
                 audio.currentTime = 0
             });
             return () => {

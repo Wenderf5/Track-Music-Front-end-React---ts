@@ -1,35 +1,43 @@
 import style from './index.module.css';
-import TopMusic from '../../../Music';
+import Music from '../../../Music';
+import { useEffect, useState } from 'react';
 
-import capa1 from '../../../../assets/img/Capas/500x500-000000-80-0-0.jpg';
-import capa2 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
-import capa3 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (2).jpg';
-import capa4 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
-import capa5 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
-import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
+interface Track {
+    id: number;
+    title: string;
+    artist: {
+        name: string;
+    };
+    album: {
+        cover_small: string;
+    };
+    preview: string;
+}
 
 function ContainerTopMusic() {
+    const [musics, setMusics] = useState<Track[]>([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('https://api.deezer.com/chart', {
+                method: 'GET'
+            })
+            const data = await response.json();
+            setMusics(data.tracks.data);
+        }
+        fetchData()
+    }, [])
+
     return (
         <div className={style.divTopMusics}>
             <h2>Musicas em alta</h2>
             <div className={style.containerTopMusics}>
-                <TopMusic img={capa2} />
-                <TopMusic img={capa1} />
-                <TopMusic img={capa6} />
-                <TopMusic img={capa5} />
-                <TopMusic img={capa4} />
-                <TopMusic img={capa3} />
-                <TopMusic img={capa2} />
-                <TopMusic img={capa1} />
-                <TopMusic img={capa6} />
-                <TopMusic img={capa5} />
-                <TopMusic img={capa4} />
-                <TopMusic img={capa3} />
-                <TopMusic img={capa2} />
-                <TopMusic img={capa1} />
+                {musics.map((track, index) => (
+                    <Music key={index} track={track} />
+                ))}
             </div>
         </div>
     )
 }
 
-export default ContainerTopMusic
+export default ContainerTopMusic;
