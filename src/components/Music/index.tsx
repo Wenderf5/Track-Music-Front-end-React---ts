@@ -115,6 +115,7 @@ function Music({ track }: Props) {
             audio.play().then(() => setIsPlaying(true));
         }
         setCurrentMusic(track);
+        setIsPlaying(false);
     }
 
     return (
