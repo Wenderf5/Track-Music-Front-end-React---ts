@@ -10,7 +10,7 @@ import capa4 from '../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 import capa5 from '../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
 import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
-function BarPlaylists() {
+function Playlists() {
     return (
         <div className={style.playlistBar}>
             <div className={style.containerbtnPlaylistbar}>
@@ -28,4 +28,4 @@ function BarPlaylists() {
     )
 }
 
-export default BarPlaylists
+export default Playlists

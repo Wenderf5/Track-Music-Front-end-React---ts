@@ -4,25 +4,32 @@ import Search from './_components/search';
 import TopArtists from './_components/topArtists';
 import TopPlaylists from './_components/topPlaylists';
 import TopMusic from './_components/topMusic';
-import SearchMusic from '../SearchMusic';
+import SearchMusicPage from '../searchMusicPage';
+import PlaylistPage from '../playlistPage';
 
 function Dashboard() {
-    const [SearchIsVisible, setSearchIsVisible] = useState(false);
+    const [searchIsVisible, setSearchIsVisible] = useState(false);
+    const [playlistIsVisible, setPlaylistIsVisible] = useState(false);
 
     return (
         <div className={style.dashborad}>
-            <div className={style.containerSearch}>
-                <Search setSearchIsVisible={setSearchIsVisible} />
-            </div>
-            {!SearchIsVisible && (
+            {!playlistIsVisible && (
+                <div className={style.containerSearch}>
+                    <Search setSearchIsVisible={setSearchIsVisible} />
+                </div>
+            )}
+            {!searchIsVisible && !playlistIsVisible && (
                 <>
                     <TopArtists />
                     <TopPlaylists />
                     <TopMusic />
                 </>
             )}
-            {SearchIsVisible && (
-                <SearchMusic />
+            {searchIsVisible && (
+                <SearchMusicPage />
+            )}
+            {playlistIsVisible && (
+                <PlaylistPage setPlaylistIsVisible={setPlaylistIsVisible} playlistIsVisible={playlistIsVisible}/>
             )}
         </div>
     )

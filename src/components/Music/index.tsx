@@ -10,7 +10,7 @@ import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
 
 interface Props {
-    track: any;
+    track?: any;
 }
 
 function Music({ track }: Props) {
@@ -129,7 +129,7 @@ function Music({ track }: Props) {
                 />
             </div>
             <div className={style.divInfo}>
-                <span>{track.title}</span>
+                <span>{track.title || "Alguma coisa"}</span>
                 <span className={style.groupName}>{track.artist.name}</span>
             </div>
             <div className={style.divMultMedia}>

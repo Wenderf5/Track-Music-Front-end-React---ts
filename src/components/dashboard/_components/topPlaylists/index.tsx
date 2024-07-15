@@ -1,24 +1,27 @@
 import style from './index.module.css';
+import { useEffect, useState } from 'react';
 import Playlist from './_components/Playlist';
 
-import capa1 from '../../../../assets/img/Capas/500x500-000000-80-0-0.jpg';
-import capa2 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
-import capa3 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (2).jpg';
-import capa4 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
-import capa5 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
-import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
-
 function TopPlaylists() {
+    const [playlist, setPlaylist] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('https://api.deezer.com/chart/0/playlists?limit=6', {
+                method: 'GET'
+            });
+            const data = await response.json();
+            setPlaylist(data.data);
+        }
+        fetchData();
+    }, []);
+    
     return (
         <div className={style.divTopPlaylists}>
             <h2>Playlistis em alta</h2>
             <div className={style.containerTopPlaylists}>
-                <Playlist img={capa1}/>
-                <Playlist img={capa2}/>
-                <Playlist img={capa3}/>
-                <Playlist img={capa4}/>
-                <Playlist img={capa5}/>
-                <Playlist img={capa6}/>
+                {playlist.map((playlist, index) => (
+                    <Playlist key={index} playlist={playlist} />
+                ))}
             </div>
         </div>
     )
