@@ -5,10 +5,10 @@ import { MusicsContext } from '../../../../context/musics';
 import { useDebounce } from '../../../../hooks/useDebounce';
 
 interface props {
-    setContainerSearchIsVisible: React.Dispatch<React.SetStateAction<boolean>>
+    setSearchIsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function Search({ setContainerSearchIsVisible }: props) {
+function Search({ setSearchIsVisible }: props) {
     const musicsContext = useContext(MusicsContext);
     if (!musicsContext) {
         throw new Error("Erro no context");
@@ -30,9 +30,9 @@ function Search({ setContainerSearchIsVisible }: props) {
                     });
                     const data = await response.json();
                     setMusics(data);
-                    setContainerSearchIsVisible(true);
+                    setSearchIsVisible(true);
                 } else {
-                    setContainerSearchIsVisible(false);
+                    setSearchIsVisible(false);
                 }
             }
             fetchData();

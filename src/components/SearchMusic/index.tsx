@@ -3,7 +3,7 @@ import Music from '../Music';
 import { useContext } from 'react';
 import { MusicsContext } from '../../context/musics';
 
-function ContainerSearchMusic() {
+function SearchMusic() {
     const musicsContext = useContext(MusicsContext);
     if (!musicsContext) {
         throw new Error("Erro no context");
@@ -20,4 +20,4 @@ function ContainerSearchMusic() {
     )
 }
 
-export default ContainerSearchMusic
+export default SearchMusic

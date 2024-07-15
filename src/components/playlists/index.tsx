@@ -17,12 +17,12 @@ function BarPlaylists() {
                 <Buttom type='playlist' icone={<ListVideo color='#989898' size={35} style={{ marginLeft: "8px" }} />} />
             </div>
             <div className={style.divPlaylist}>
-                <Playlist capa={capa6} />
-                <Playlist capa={capa2} />
-                <Playlist capa={capa3} />
-                <Playlist capa={capa4} />
-                <Playlist capa={capa5} />
-                <Playlist capa={capa1} />
+                <Playlist img={capa6} />
+                <Playlist img={capa2} />
+                <Playlist img={capa3} />
+                <Playlist img={capa4} />
+                <Playlist img={capa5} />
+                <Playlist img={capa1} />
             </div>
         </div>
     )

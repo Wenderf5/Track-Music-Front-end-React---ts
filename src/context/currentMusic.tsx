@@ -1,8 +1,22 @@
 import { createContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 
+interface Track {
+    id: number;
+    title: string;
+    artist: {
+        name: string;
+    };
+    album: {
+        title: string;
+        cover_small: string;
+        cover_big: string;
+    };
+    preview: string;
+}
+
 interface ContextType {
-    currentMusic: object | undefined;
-    setCurrentMusic: Dispatch<SetStateAction<object | undefined>>;
+    currentMusic: Track | undefined;
+    setCurrentMusic: Dispatch<SetStateAction<Track | undefined>>;
     currentMusicDuration: number | undefined;
     setCurrentMusicDuration: Dispatch<SetStateAction<number | undefined>>;
     currentMusicTime: number | undefined;
@@ -20,7 +34,7 @@ interface ContextType {
 export const CurrentMusicContext = createContext<ContextType | undefined>(undefined);
 
 export function CurrentMusicContextProvider({ children }: { children: ReactNode }) {
-    const [currentMusic, setCurrentMusic] = useState<object | undefined>(undefined);
+    const [currentMusic, setCurrentMusic] = useState<Track | undefined>(undefined);
     const [currentMusicDuration, setCurrentMusicDuration] = useState<number | undefined>(undefined);
     const [currentMusicTime, setCurrentMusicTime] = useState<number | undefined>(undefined);
     const [currentMusicIsPlaying, setCurrentMusicIsPlaying] = useState<boolean | undefined>(undefined);

@@ -8,7 +8,7 @@ import capa4 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 import capa5 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
 import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
-function ContainerTopArtists() {
+function TopArtists() {
     return (
         <div className={style.divTopArtists}>
             <h2>Artistas em alta</h2>
@@ -24,4 +24,4 @@ function ContainerTopArtists() {
     )
 }
 
-export default ContainerTopArtists
+export default TopArtists

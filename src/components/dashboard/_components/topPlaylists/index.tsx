@@ -8,7 +8,7 @@ import capa4 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 import capa5 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
 import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
-function ContainerTopPlaylists() {
+function TopPlaylists() {
     return (
         <div className={style.divTopPlaylists}>
             <h2>Playlistis em alta</h2>
@@ -24,4 +24,4 @@ function ContainerTopPlaylists() {
     )
 }
 
-export default ContainerTopPlaylists
+export default TopPlaylists

@@ -1,7 +1,7 @@
 import style from './index.module.css';
 import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 import InfoMusic from '../../components/infoMusic';
-import BarPlaylists from '../../components/BarPlaylists';
+import BarPlaylists from '../../components/playlists';
 import Dashboard from '../../components/dashboard';
 import Footer from '../../components/footer';
 

@@ -14,7 +14,7 @@ interface Track {
     preview: string;
 }
 
-function ContainerTopMusic() {
+function TopMusic() {
     const [musics, setMusics] = useState<Track[]>([]);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function ContainerTopMusic() {
             const data = await response.json();
             setMusics(data.tracks.data);
         }
-        fetchData()
+        fetchData();
     }, [])
 
     return (
@@ -40,4 +40,4 @@ function ContainerTopMusic() {
     )
 }
 
-export default ContainerTopMusic;
+export default TopMusic;

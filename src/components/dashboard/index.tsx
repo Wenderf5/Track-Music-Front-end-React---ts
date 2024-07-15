@@ -1,28 +1,28 @@
 import style from './index.module.css';
 import { useState } from 'react';
 import Search from './_components/search';
-import ContainerTopArtists from './_components/containerTopArtists';
-import ContainerTopPlaylists from './_components/containerTopPlaylists';
-import ContainerTopMusic from './_components/containerTopMusic';
-import ContainerSearchMusic from '../containerSearchMusic';
+import TopArtists from './_components/topArtists';
+import TopPlaylists from './_components/topPlaylists';
+import TopMusic from './_components/topMusic';
+import SearchMusic from '../SearchMusic';
 
 function Dashboard() {
-    const [containerSearchIsVisible, setContainerSearchIsVisible] = useState(false);
+    const [SearchIsVisible, setSearchIsVisible] = useState(false);
 
     return (
         <div className={style.dashborad}>
             <div className={style.containerSearch}>
-                <Search setContainerSearchIsVisible={setContainerSearchIsVisible} />
+                <Search setSearchIsVisible={setSearchIsVisible} />
             </div>
-            {!containerSearchIsVisible && (
+            {!SearchIsVisible && (
                 <>
-                    <ContainerTopArtists />
-                    <ContainerTopPlaylists />
-                    <ContainerTopMusic />
+                    <TopArtists />
+                    <TopPlaylists />
+                    <TopMusic />
                 </>
             )}
-            {containerSearchIsVisible && (
-                <ContainerSearchMusic />
+            {SearchIsVisible && (
+                <SearchMusic />
             )}
         </div>
     )
