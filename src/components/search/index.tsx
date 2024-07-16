@@ -1,8 +1,8 @@
 import style from './index.module.css';
-import search from '../../../../assets/icons/search-regular-240.png';
+import search from '../../assets/icons/search-regular-240.png';
 import { useEffect, useState, useContext } from 'react';
-import { MusicsContext } from '../../../../context/musics';
-import { useDebounce } from '../../../../hooks/useDebounce';
+import { MusicsContext } from '../../context/musics';
+import { useDebounce } from '../../hooks/useDebounce';
 
 interface props {
     setSearchIsVisible: React.Dispatch<React.SetStateAction<boolean>>
@@ -11,7 +11,7 @@ interface props {
 function Search({ setSearchIsVisible }: props) {
     const musicsContext = useContext(MusicsContext);
     if (!musicsContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "musicsContext" Search linha 14.');
     }
     const { setMusics } = musicsContext;
     const [inputValue, setInputValue] = useState<string>("");

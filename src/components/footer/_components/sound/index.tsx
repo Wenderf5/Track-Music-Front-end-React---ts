@@ -8,7 +8,7 @@ import { Volume2, VolumeX } from 'lucide-react';
 function Sound() {
     const volumeContext = useContext(VolumeContext);
     if (!volumeContext) {
-        throw new Error("Erro no context")
+        throw new Error('Erro no contexto "volumeContext" Sound linha 11.')
     }
     const { volumeCon, setVolumeCon, volumeMutedCon, setVolumeMutedCon } = volumeContext;
     const [volume, setVolume] = useState<number>(volumeCon);

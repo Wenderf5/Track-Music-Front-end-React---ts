@@ -4,6 +4,7 @@ import { CurrentMusicContextProvider } from "../context/currentMusic";
 import { VolumeContextProvider } from "../context/volumeContext";
 import App from "../App";
 import Home from "../pages/home";
+import Playlist from "../pages/playlist";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,18 @@ const router = createBrowserRouter([
                         <CurrentMusicContextProvider>
                             <MusicsContextProvider>
                                 <Home />
+                            </MusicsContextProvider>
+                        </CurrentMusicContextProvider>
+                    </VolumeContextProvider>
+                )
+            },
+            {
+                path: '/playlist/:playlistID',
+                element: (
+                    <VolumeContextProvider>
+                        <CurrentMusicContextProvider>
+                            <MusicsContextProvider>
+                                <Playlist />
                             </MusicsContextProvider>
                         </CurrentMusicContextProvider>
                     </VolumeContextProvider>

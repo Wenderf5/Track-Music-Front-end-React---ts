@@ -11,7 +11,7 @@ interface props {
 function InfoMusic(props: props) {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "currentMusicContext" InfoMusic linha 14.');
     }
     const { currentMusic } = currentMusicContext;
 

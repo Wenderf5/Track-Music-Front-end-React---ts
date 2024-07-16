@@ -1,16 +1,37 @@
 import style from './index.module.css';
+import { useState } from 'react';
 import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
-import Dashboard from '../../components/dashboard';
 import Footer from '../../components/footer';
+import Search from '../../components/search';
+import TopArtists from '../../components/topArtists';
+import TopPlaylists from '../../components/topPlaylists';
+import TopMusic from '../../components/topMusic';
+import SearchMusicPage from '../../components/searchMusicPage';
 
 function Home() {
+    const [searchIsVisible, setSearchIsVisible] = useState(false);
+
     return (
         <main className={style.page}>
             <div className={style.divPricipal}>
                 <Playlists />
-                <Dashboard />
+                <div className={style.dashborad}>
+                    <div className={style.containerSearch}>
+                        <Search setSearchIsVisible={setSearchIsVisible} />
+                    </div>
+                    {!searchIsVisible && (
+                        <>
+                            <TopArtists />
+                            <TopPlaylists />
+                            <TopMusic />
+                        </>
+                    )}
+                    {searchIsVisible && (
+                        <SearchMusicPage />
+                    )}
+                </div>
                 <InfoMusic img={capa2} />
             </div>
             <Footer />

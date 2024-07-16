@@ -11,7 +11,7 @@ import Slider from '@mui/material/Slider';
 function MultiMedia() {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "currentMusicContext" MultiMedia linha 14.');
     }
     const {
         currentMusicDuration,

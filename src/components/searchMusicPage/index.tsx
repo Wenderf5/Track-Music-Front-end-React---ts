@@ -6,7 +6,7 @@ import { MusicsContext } from '../../context/musics';
 function SearchMusicPage() {
     const musicsContext = useContext(MusicsContext);
     if (!musicsContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "musicsContext" SearchMusicPage linha 9.');
     }
     const { musics } = musicsContext;
 

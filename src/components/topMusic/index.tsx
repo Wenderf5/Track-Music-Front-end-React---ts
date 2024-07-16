@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import Music from '../../../Music';
+import Music from '../Music';
 import { useEffect, useState } from 'react';
 
 interface Track {

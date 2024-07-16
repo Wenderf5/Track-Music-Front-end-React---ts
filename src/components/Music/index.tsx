@@ -16,7 +16,7 @@ interface Props {
 function Music({ track }: Props) {
     const currentMusicContext = useContext(CurrentMusicContext);
     if (!currentMusicContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "currentMusicContext" Music linha 19.');
     }
     const {
         setCurrentMusic,
@@ -89,7 +89,7 @@ function Music({ track }: Props) {
 
     const volumeContext = useContext(VolumeContext);
     if (!volumeContext) {
-        throw new Error("Erro no context");
+        throw new Error('Erro no contexto "volumeContext" Music linha 92.');
     }
     const { volumeCon, volumeMutedCon } = volumeContext;
 
