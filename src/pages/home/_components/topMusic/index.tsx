@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import Music from '../Music';
+import Music from '../../../../components/Music';
 import { useEffect, useState } from 'react';
 
 interface Track {
@@ -19,11 +19,15 @@ function TopMusic() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('https://api.deezer.com/chart', {
-                method: 'GET'
-            })
-            const data = await response.json();
-            setMusics(data.tracks.data);
+            try {
+                const response = await fetch('https://api.deezer.com/chart?limit=50', {
+                    method: 'GET'
+                })
+                const data = await response.json();
+                setMusics(data.tracks.data);
+            } catch (error) {
+                console.error('Erro ao buscar dados das top musicas:', error);
+            }
         }
         fetchData();
     }, [])

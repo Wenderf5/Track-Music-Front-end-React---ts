@@ -5,9 +5,9 @@ import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
 import Search from '../../components/search';
-import TopArtists from '../../components/topArtists';
-import TopPlaylists from '../../components/topPlaylists';
-import TopMusic from '../../components/topMusic';
+import TopArtists from './_components/topArtists';
+import TopPlaylists from './_components/topPlaylists';
+import TopMusic from './_components/topMusic';
 import SearchMusicPage from '../../components/searchMusicPage';
 
 function Home() {

@@ -10,11 +10,15 @@ function TopPlaylists() {
     const [playlist, setPlaylist] = useState<playlist[]>([]);
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('https://api.deezer.com/chart/0/playlists?limit=6', {
-                method: 'GET'
-            });
-            const data = await response.json();
-            setPlaylist(data.data);
+            try {
+                const response = await fetch('https://api.deezer.com/chart/0/playlists?limit=6', {
+                    method: 'GET'
+                });
+                const data = await response.json();
+                setPlaylist(data.data);
+            } catch (error) {
+                console.error('Erro ao buscar dados das top playlist:', error);
+            }
         }
         fetchData();
     }, []);

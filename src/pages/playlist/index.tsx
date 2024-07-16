@@ -1,16 +1,17 @@
 import style from './index.module.css';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
-import BtnHome from '../../components/btnHome';
 import Music from '../../components/Music';
+import InfoPlaylist from './_components/infoPlaylist';
 
 function Playlist() {
-    interface Data {
+    interface playlist {
         title?: string;
+        creation_date: string;
         creator?: {
             name: string;
         };
@@ -18,17 +19,21 @@ function Playlist() {
     }
 
     const { playlistID } = useParams();
-    const [playlist, setPlaylist] = useState<Data | undefined>(undefined);
+    const [playlist, setPlaylist] = useState<playlist | undefined>(undefined);
     const [musics, setMusics] = useState<[]>([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`https://api.deezer.com/playlist/${playlistID}`, {
-                method: 'GET'
-            });
-            const data = await response.json();
-            setMusics(data.tracks.data);
-            setPlaylist(data);
+            try {
+                const response = await fetch(`https://api.deezer.com/playlist/${playlistID}`, {
+                    method: 'GET'
+                });
+                const data = await response.json();
+                setMusics(data.tracks.data);
+                setPlaylist(data);
+            } catch (error) {
+                console.error('Erro ao buscar dados da playlist:', error);
+            }
         }
         fetchData();
     }, [])
@@ -39,20 +44,12 @@ function Playlist() {
                 <Playlists />
                 <div className={style.dashborad}>
                     <div className={style.divPlaylist}>
-                        <div className={style.divInfoPlaylist}>
-                            <div className={style.playlistIMG}>
-                                <img style={{ width: "100%", height: "100%", borderRadius: "10px" }} src={playlist?.picture_big} alt="Capa da playlist" />
-                            </div>
-                            <div className={style.divInfo}>
-                                <span className={style.playlistName}>{playlist?.title}</span>
-                                <span className={style.creatorName}>Criado por: {playlist?.creator?.name}</span>
-                            </div>
-                            <div className={style.divBtnHome}>
-                                <Link to={'/'}>
-                                    <BtnHome />
-                                </Link>
-                            </div>
-                        </div>
+                        <InfoPlaylist
+                            title={playlist?.title}
+                            creation_date={playlist?.creation_date}
+                            creator={playlist?.creator?.name}
+                            img={playlist?.picture_big}
+                        />
                         <div className={style.divMusic}>
                             <span className={style.music}>Músicas:</span>
                             {musics.map((track, index) => (
