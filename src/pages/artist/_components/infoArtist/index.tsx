@@ -4,19 +4,19 @@ import style from './index.module.css';
 
 interface Props {
     name?: string;
-    img?: string;
+    picture?: string;
 }
 
 function InfoArtist({
     name,
-    img
+    picture
 }: Props) {
     return (
         <div className={style.divInfoArtist}>
             <div className={style.artistIMG}>
                 <img
                     style={{ width: "100%", height: "100%", borderRadius: "10px" }}
-                    src={img} alt="Foto do artista"
+                    src={picture} alt="Foto do artista"
                 />
             </div>
             <div className={style.divInfo}>

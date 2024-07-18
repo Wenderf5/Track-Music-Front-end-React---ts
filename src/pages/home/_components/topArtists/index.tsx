@@ -2,21 +2,18 @@ import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Artist from './_components/Artist';
+import { interfaceTopArtists } from '../../../../types/topArtists';
 
 function TopArtists() {
-    interface artist {
-        id: string;
-        picture_big: string;
-    }
-    const [artists, setArtist] = useState<artist[]>([]);
+    const [artists, setArtist] = useState<interfaceTopArtists[]>([]);
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('https://api.deezer.com/chart/0/artists?limit=6', {
+                const response = await fetch('http://localhost:8080/top-artists', {
                     method: 'GET'
                 });
                 const data = await response.json();
-                setArtist(data.data);
+                setArtist(data);
             } catch (error) {
                 console.error('Erro ao buscar dados dos top artistas:', error);
             }

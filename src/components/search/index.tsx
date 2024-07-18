@@ -25,7 +25,7 @@ function Search({ setSearchIsVisible }: props) {
         try {
             async function fetchData() {
                 if (debouncedInputValue) {
-                    const response = await fetch(`https://api.deezer.com/search?q=${debouncedInputValue}`, {
+                    const response = await fetch(`http://localhost:8080/music/${debouncedInputValue}`, {
                         method: 'GET'
                     });
                     const data = await response.json();

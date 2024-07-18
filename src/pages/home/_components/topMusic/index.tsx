@@ -1,30 +1,19 @@
 import style from './index.module.css';
 import Music from '../../../../components/Music';
 import { useEffect, useState } from 'react';
-
-interface Track {
-    id: number;
-    title: string;
-    artist: {
-        name: string;
-    };
-    album: {
-        cover_small: string;
-    };
-    preview: string;
-}
+import { interfaceTopMusics } from '../../../../types/topMusics';
 
 function TopMusic() {
-    const [musics, setMusics] = useState<Track[]>([]);
+    const [musics, setMusics] = useState<interfaceTopMusics[]>([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('https://api.deezer.com/chart?limit=50', {
+                const response = await fetch('http://localhost:8080/top-music', {
                     method: 'GET'
                 })
                 const data = await response.json();
-                setMusics(data.tracks.data);
+                setMusics(data);
             } catch (error) {
                 console.error('Erro ao buscar dados das top musicas:', error);
             }

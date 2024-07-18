@@ -8,9 +8,10 @@ import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
 import { useRef, useState, useContext, useEffect, useCallback } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
+import { interfaceTrack } from '../../types/track';
 
 interface Props {
-    track?: any;
+    track?: interfaceTrack;
 }
 
 function Music({ track }: Props) {
@@ -124,13 +125,13 @@ function Music({ track }: Props) {
                     width="100%"
                     height="100%"
                     style={{ borderRadius: '3px' }}
-                    src={track.album.cover_small}
+                    src={track?.album.cover_big}
                     alt="Musica"
                 />
             </div>
             <div className={style.divInfo}>
-                <span>{track.title || "Alguma coisa"}</span>
-                <span className={style.groupName}>{track.artist.name}</span>
+                <span>{track?.title || "Alguma coisa"}</span>
+                <span className={style.groupName}>{track?.artist.name}</span>
             </div>
             <div className={style.divMultMedia}>
                 <Buttom
@@ -146,7 +147,7 @@ function Music({ track }: Props) {
                     icone={<img src={currentMusic === track && isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
                 />
             </div>
-            <audio ref={audioRef} src={track.preview} onPause={handlePause}></audio>
+            <audio ref={audioRef} src={track?.preview} onPause={handlePause}></audio>
         </main>
     );
 }

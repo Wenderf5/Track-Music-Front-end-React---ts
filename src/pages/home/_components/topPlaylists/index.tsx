@@ -2,20 +2,18 @@ import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Playlist from './_components/Playlist';
+import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
 
 function TopPlaylists() {
-    interface playlist {
-        id: string
-    }
-    const [playlist, setPlaylist] = useState<playlist[]>([]);
+    const [playlist, setPlaylist] = useState<interfaceTopPlaylists[]>([]);
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('https://api.deezer.com/chart/0/playlists?limit=6', {
+                const response = await fetch('http://localhost:8080/top-playlist', {
                     method: 'GET'
                 });
                 const data = await response.json();
-                setPlaylist(data.data);
+                setPlaylist(data);
             } catch (error) {
                 console.error('Erro ao buscar dados das top playlist:', error);
             }

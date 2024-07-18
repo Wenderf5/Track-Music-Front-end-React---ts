@@ -7,35 +7,27 @@ import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
 import Music from '../../components/Music';
 import InfoArtist from './_components/infoArtist';
-
-interface ArtistData {
-    name?: string;
-    picture_big?: string;
-}
-
-interface Track {
-    id: number;
-    title: string;
-}
+import { interfaceTrack } from '../../types/track';
+import { interfaceArtists } from '../../types/artists';
 
 function Artist() {
     const { artistID } = useParams();
-    const [artist, setArtist] = useState<ArtistData | undefined>(undefined);
-    const [musics, setMusics] = useState<Track[]>([]);
+    const [artist, setArtist] = useState<interfaceArtists | undefined>(undefined);
+    const [musics, setMusics] = useState<interfaceTrack[]>([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const [artistResponse, TracksResponse] = await Promise.all([
-                    fetch(`https://api.deezer.com/artist/${artistID}`),
-                    fetch(`https://api.deezer.com/artist/${artistID}/top?limit=50`)
+                    fetch(`http://localhost:8080/artist/${artistID}`),
+                    fetch(`http://localhost:8080/artist-musics/${artistID}`)
                 ]);
 
                 const artistData = await artistResponse.json();
                 const TracksData = await TracksResponse.json();
 
                 setArtist(artistData);
-                setMusics(TracksData.data);
+                setMusics(TracksData);
             } catch (error) {
                 console.error('Erro ao buscar dados do artista:', error);
             }
@@ -51,12 +43,12 @@ function Artist() {
                     <div className={style.divPlaylist}>
                         <InfoArtist
                             name={artist?.name}
-                            img={artist?.picture_big}
+                            picture={artist?.picture}
                         />
                         <div className={style.divMusic}>
                             <span className={style.music}>Músicas:</span>
-                            {musics.map((track) => (
-                                <Music key={track.id} track={track} />
+                            {musics.map((track, index) => (
+                                <Music key={index} track={track} />
                             ))}
                         </div>
                     </div>
