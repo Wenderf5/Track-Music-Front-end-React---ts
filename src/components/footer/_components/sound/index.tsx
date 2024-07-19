@@ -23,6 +23,7 @@ function Sound() {
     }, [volumeMutedCon]);
 
     const handleChange = (event: Event, newValue: number | number[]) => {
+        console.log(event);
         setVolume(newValue as number);
         setVolumeCon(newValue as number);
         if (newValue as number < 1) {

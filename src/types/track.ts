@@ -5,6 +5,7 @@ export interface interfaceTrack {
         name: string;
     };
     album: {
-        cover_big: string
+        title: string;
+        cover_big: string;
     }
 }

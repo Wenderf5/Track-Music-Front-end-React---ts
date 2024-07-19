@@ -5,6 +5,7 @@ export interface interfaceTopMusics {
         name: string;
     };
     album: {
+        title: string;
         cover_big: string;
     }
 }
