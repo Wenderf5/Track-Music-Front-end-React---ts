@@ -7,30 +7,29 @@ import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
 import Music from '../../components/Music';
 import InfoPlaylist from './_components/infoPlaylist';
+import { interfacePlaylist } from '../../types/playlist';
+import { interfaceTrack } from '../../types/track';
 
 function Playlist() {
-    interface playlist {
-        title?: string;
-        creation_date: string;
-        creator?: {
-            name: string;
-        };
-        picture_big?: string;
-    }
-
     const { playlistID } = useParams();
-    const [playlist, setPlaylist] = useState<playlist | undefined>(undefined);
-    const [musics, setMusics] = useState<[]>([]);
+    const [playlist, setPlaylist] = useState<interfacePlaylist | undefined>(undefined);
+    const [musics, setMusics] = useState<interfaceTrack[]>([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch(`https://api.deezer.com/playlist/${playlistID}`, {
-                    method: 'GET'
-                });
-                const data = await response.json();
-                setMusics(data.tracks.data);
-                setPlaylist(data);
+                const [playlistResponse, playlistMusicResponse] = await Promise.all([
+                    fetch(`http://localhost:8080/playlist/${playlistID}`, {
+                        method: 'GET'
+                    }),
+                    fetch(`http://localhost:8080/playlist-music/${playlistID}`, {
+                        method: 'GET'
+                    })
+                ]);
+                const dataPlaylist = await playlistResponse.json();
+                const dataPlaylistMusic = await playlistMusicResponse.json();
+                setMusics(dataPlaylistMusic);
+                setPlaylist(dataPlaylist);
             } catch (error) {
                 console.error('Erro ao buscar dados da playlist:', error);
             }
@@ -48,7 +47,7 @@ function Playlist() {
                             title={playlist?.title}
                             creation_date={playlist?.creation_date}
                             creator={playlist?.creator?.name}
-                            img={playlist?.picture_big}
+                            img={playlist?.picture}
                         />
                         <div className={style.divMusic}>
                             <span className={style.music}>Músicas:</span>

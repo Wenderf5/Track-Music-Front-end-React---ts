@@ -19,8 +19,12 @@ function Artist() {
         async function fetchData() {
             try {
                 const [artistResponse, TracksResponse] = await Promise.all([
-                    fetch(`http://localhost:8080/artist/${artistID}`),
-                    fetch(`http://localhost:8080/artist-musics/${artistID}`)
+                    fetch(`http://localhost:8080/artist/${artistID}`, {
+                        method: 'GET'
+                    }),
+                    fetch(`http://localhost:8080/artist-musics/${artistID}`, {
+                        method: 'GET'
+                    })
                 ]);
 
                 const artistData = await artistResponse.json();
