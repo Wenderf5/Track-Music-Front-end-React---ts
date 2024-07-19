@@ -19,10 +19,10 @@ function Artist() {
         async function fetchData() {
             try {
                 const [artistResponse, TracksResponse] = await Promise.all([
-                    fetch(`http://localhost:8080/artist/${artistID}`, {
+                    fetch(`https://track-music-server.vercel.app/artist/${artistID}`, {
                         method: 'GET'
                     }),
-                    fetch(`http://localhost:8080/artist-musics/${artistID}`, {
+                    fetch(`https://track-music-server.vercel.app/artist-musics/${artistID}`, {
                         method: 'GET'
                     })
                 ]);

@@ -9,7 +9,7 @@ function TopMusic() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('http://localhost:8080/top-music', {
+                const response = await fetch('https://track-music-server.vercel.app/top-music', {
                     method: 'GET'
                 })
                 const data = await response.json();
