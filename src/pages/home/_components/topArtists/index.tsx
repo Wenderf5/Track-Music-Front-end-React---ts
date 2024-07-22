@@ -10,7 +10,10 @@ function TopArtists() {
         async function fetchData() {
             try {
                 const response = await fetch('https://track-music-server.vercel.app/top-artists', {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 });
                 const data = await response.json();
                 setArtist(data);

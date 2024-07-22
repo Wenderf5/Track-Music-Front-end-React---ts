@@ -10,7 +10,10 @@ function TopMusic() {
         async function fetchData() {
             try {
                 const response = await fetch('https://track-music-server.vercel.app/top-music', {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 })
                 const data = await response.json();
                 setMusics(data);

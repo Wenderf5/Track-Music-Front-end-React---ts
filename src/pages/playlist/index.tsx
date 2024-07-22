@@ -20,10 +20,16 @@ function Playlist() {
             try {
                 const [playlistResponse, playlistMusicResponse] = await Promise.all([
                     fetch(`https://track-music-server.vercel.app/playlist/${playlistID}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     }),
                     fetch(`https://track-music-server.vercel.app/playlist-music/${playlistID}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     })
                 ]);
                 const dataPlaylist = await playlistResponse.json();

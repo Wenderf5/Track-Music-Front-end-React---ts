@@ -26,7 +26,10 @@ function Search({ setSearchIsVisible }: props) {
             async function fetchData() {
                 if (debouncedInputValue) {
                     const response = await fetch(`https://track-music-server.vercel.app/music/${debouncedInputValue}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     });
                     const data = await response.json();
                     setMusics(data);

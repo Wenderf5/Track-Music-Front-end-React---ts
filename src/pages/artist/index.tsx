@@ -20,10 +20,16 @@ function Artist() {
             try {
                 const [artistResponse, TracksResponse] = await Promise.all([
                     fetch(`https://track-music-server.vercel.app/artist/${artistID}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     }),
                     fetch(`https://track-music-server.vercel.app/artist-musics/${artistID}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
                     })
                 ]);
 
