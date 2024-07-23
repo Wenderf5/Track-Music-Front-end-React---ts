@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    height: 25%;
+    color: white;
+    background-color: #191919;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #101010;
+}
+
+.containerInput {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerBTN {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+
+.inputTXT{
+    width: 79%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px white solid;
+    padding-left: 10px;
+    color: white;
+    background-color: #101010;
+}
+
+.txtNovaPlaylist{
+    width: 95%;
+    left: 0%;
+}

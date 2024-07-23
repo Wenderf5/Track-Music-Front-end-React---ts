@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { ListVideo, ListX, Plus } from 'lucide-react';
 import Buttom from '../button';
 import Playlist from './_components/playlist';
+import NewPlaylist from './_components/newPlaylist';
 import { PlaylistContext } from '../../context/playlist';
 
 import capa1 from '../../assets/img/Capas/500x500-000000-80-0-0.jpg';
@@ -14,32 +15,13 @@ import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
 function Playlists() {
     const [expanded, setExpanded] = useState<boolean>(false);
-
+    const [newPlaylistIsVisible, setNewPlaylistIsVisible] = useState<boolean>(false);
+    
     const playlistContext = useContext(PlaylistContext);
     if (!playlistContext) {
         throw new Error("Erro no contexto playlists linha 20");
     }
     const { playlists } = playlistContext;
-
-    function newPlaylist() {
-        playlists.push({
-            playlistName: "Playlist 2",
-            id: 2,
-            musics: [
-                {
-                    title: "Music Name",
-                    Preview: "dwadwadawdawda",
-                    artist: {
-                        name: "Artist Name"
-                    },
-                    Album: {
-                        title: "Album Name",
-                        cover_big: "dawdadwa"
-                    }
-                }
-            ]
-        })
-    }
 
     return (
         <div className={expanded ? style.playlistBarExpanded : style.playlistBar}>
@@ -47,7 +29,7 @@ function Playlists() {
                 {expanded && (<span className={style.myPlayliststxt}>Minhas playlists</span>)}
                 <div className={style.btns}>
                     {expanded && (
-                        <div onClick={newPlaylist}>
+                        <div onClick={() => setNewPlaylistIsVisible(!newPlaylistIsVisible)}>
                             <Buttom type='playlist' icone={<Plus color='#989898' size={30} style={{ marginLeft: "8px" }} />} />
                         </div>
                     )}
@@ -56,6 +38,9 @@ function Playlists() {
                     </div>
                 </div>
             </div>
+            {newPlaylistIsVisible && (
+                <NewPlaylist newPlaylistIsVisible={newPlaylistIsVisible} setNewPlaylistIsVisible={setNewPlaylistIsVisible}/>
+            )}
             <div className={expanded ? style.divPlaylistExpanded : style.divPlaylist}>
                 {playlists.map((playlist, index) => (
                     <Playlist img={capa6} expanded={expanded} key={index} playlist={playlist} />

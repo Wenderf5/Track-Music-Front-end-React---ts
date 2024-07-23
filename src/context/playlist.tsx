@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 
 interface playlistInterface {
-    playlists: any
-    setPlaylists: React.Dispatch<React.SetStateAction<any>>
+    playlists: object[];
+    setPlaylists: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
 export const PlaylistContext = createContext<playlistInterface | undefined>(undefined);
 
 export function PlaylistContextProvider({ children }: { children: React.ReactNode }) {
-    const [playlists, setPlaylists] = useState<any>([
+    const [playlists, setPlaylists] = useState<object[]>([
         {
-            playlistName: "Playlist 1",
             id: 1,
+            playlistName: "Playlist 1",
             musics: [
                 {
                     title: "Music Name",

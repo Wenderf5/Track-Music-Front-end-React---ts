@@ -127,7 +127,7 @@ function Music({ track }: Props) {
 
     function addMusicPlaylist() {
         for (let i = 0; i < playlists.length; i++) {
-            if (playlists[i].id === 123) {
+            if (playlists[i].id === 1) {
                 const musics = playlists[i].musics;
                 musics.push(track);
             }
