@@ -8,6 +8,7 @@ import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
 import { useRef, useState, useContext, useEffect, useCallback } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
+import { PlaylistContext } from '../../context/playlist';
 import { interfaceTrack } from '../../types/track';
 
 interface Props {
@@ -118,6 +119,22 @@ function Music({ track }: Props) {
         setIsPlaying(false);
     }
 
+    const playlistContext = useContext(PlaylistContext);
+    if (!playlistContext) {
+        throw new Error('Erro no contexto "volumeContext" Music linha 92.');
+    }
+    const { playlists } = playlistContext;
+
+    function addMusicPlaylist() {
+        for (let i = 0; i < playlists.length; i++) {
+            if (playlists[i].id === 123) {
+                const musics = playlists[i].musics;
+                musics.push(track);
+            }
+            console.log(playlists[i]);
+        }
+    }
+
     return (
         <main className={style.main} onClick={isPlaying ? reloadMusic : playPause}>
             <div className={style.imgMusic}>
@@ -134,10 +151,12 @@ function Music({ track }: Props) {
                 <span className={style.groupName}>{track?.artist.name}</span>
             </div>
             <div className={style.divMultMedia}>
-                <Buttom
-                    type='music'
-                    icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
-                />
+                <div onClick={addMusicPlaylist}>
+                    <Buttom
+                        type='music'
+                        icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
+                    />
+                </div>
                 <Buttom
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={currentMusic === track && isPlaying ? "Pause" : "Play"} />}

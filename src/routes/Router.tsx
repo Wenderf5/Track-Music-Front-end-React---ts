@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { MusicsContextProvider } from "../context/musics";
 import { CurrentMusicContextProvider } from "../context/currentMusic";
 import { VolumeContextProvider } from "../context/volumeContext";
+import { PlaylistContextProvider } from "../context/playlist";
 import App from "../App";
 import Home from "../pages/home";
 import Playlist from "../pages/playlist";
@@ -15,37 +16,43 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: (
-                    <VolumeContextProvider>
-                        <CurrentMusicContextProvider>
-                            <MusicsContextProvider>
-                                <Home />
-                            </MusicsContextProvider>
-                        </CurrentMusicContextProvider>
-                    </VolumeContextProvider>
+                    <PlaylistContextProvider>
+                        <VolumeContextProvider>
+                            <CurrentMusicContextProvider>
+                                <MusicsContextProvider>
+                                    <Home />
+                                </MusicsContextProvider>
+                            </CurrentMusicContextProvider>
+                        </VolumeContextProvider>
+                    </PlaylistContextProvider>
                 )
             },
             {
                 path: '/playlist/:playlistID',
                 element: (
-                    <VolumeContextProvider>
-                        <CurrentMusicContextProvider>
-                            <MusicsContextProvider>
-                                <Playlist />
-                            </MusicsContextProvider>
-                        </CurrentMusicContextProvider>
-                    </VolumeContextProvider>
+                    <PlaylistContextProvider>
+                        <VolumeContextProvider>
+                            <CurrentMusicContextProvider>
+                                <MusicsContextProvider>
+                                    <Playlist />
+                                </MusicsContextProvider>
+                            </CurrentMusicContextProvider>
+                        </VolumeContextProvider>
+                    </PlaylistContextProvider>
                 )
             },
             {
                 path: '/artist/:artistID',
                 element: (
-                    <VolumeContextProvider>
-                        <CurrentMusicContextProvider>
-                            <MusicsContextProvider>
-                                <Artist />
-                            </MusicsContextProvider>
-                        </CurrentMusicContextProvider>
-                    </VolumeContextProvider>
+                    <PlaylistContextProvider>
+                        <VolumeContextProvider>
+                            <CurrentMusicContextProvider>
+                                <MusicsContextProvider>
+                                    <Artist />
+                                </MusicsContextProvider>
+                            </CurrentMusicContextProvider>
+                        </VolumeContextProvider>
+                    </PlaylistContextProvider>
                 )
             }
         ]
