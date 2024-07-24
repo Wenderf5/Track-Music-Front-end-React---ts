@@ -26,11 +26,11 @@ function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
             musics: [
                 {
                     title: "Music Name",
-                    Preview: "dwadwadawdawda",
+                    preview: "dwadwadawdawda",
                     artist: {
                         name: "Artist Name"
                     },
-                    Album: {
+                    album: {
                         title: "Album Name",
                         cover_big: "dawdadwa"
                     }
