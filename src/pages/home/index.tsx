@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
@@ -13,14 +13,10 @@ import SearchMusicPage from '../../components/searchMusicPage';
 function Home() {
     const [searchIsVisible, setSearchIsVisible] = useState(false);
 
-    useEffect(()=>{
-        
-    })
-
     return (
         <main className={style.page}>
             <div className={style.divPricipal}>
-                <div className={style.divPlaylist}>
+                <div className={style.containerPlaylist}>
                     <Playlists />
                 </div>
                 <div className={style.dashborad}>

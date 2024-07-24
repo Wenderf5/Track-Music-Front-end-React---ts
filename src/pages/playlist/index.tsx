@@ -46,7 +46,9 @@ function Playlist() {
     return (
         <main className={style.page}>
             <div className={style.divPricipal}>
-                <Playlists />
+                <div className={style.containerPlaylist}>
+                    <Playlists />
+                </div>
                 <div className={style.dashborad}>
                     <div className={style.divPlaylist}>
                         <InfoPlaylist

@@ -16,7 +16,7 @@ import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 function Playlists() {
     const [expanded, setExpanded] = useState<boolean>(false);
     const [newPlaylistIsVisible, setNewPlaylistIsVisible] = useState<boolean>(false);
-    
+
     const playlistContext = useContext(PlaylistContext);
     if (!playlistContext) {
         throw new Error("Erro no contexto playlists linha 20");
@@ -33,13 +33,13 @@ function Playlists() {
                             <Buttom type='playlist' icone={<Plus color='#989898' size={30} style={{ marginLeft: "8px" }} />} />
                         </div>
                     )}
-                    <div className={expanded ? style.containerbtnPlaylistbarExpanded : style.containerbtnPlaylistbar} onClick={() => setExpanded(!expanded)}>
+                    <div className={expanded ? style.containerbtnPlaylistbarExpanded : style.containerbtnPlaylistbar} onClick={() => { setExpanded(!expanded); setNewPlaylistIsVisible(false) }}>
                         <Buttom type='playlist' icone={expanded ? <ListX color='#989898' size={35} /> : <ListVideo color='#989898' size={35} style={{ marginLeft: "8px" }} />} />
                     </div>
                 </div>
             </div>
             {newPlaylistIsVisible && (
-                <NewPlaylist newPlaylistIsVisible={newPlaylistIsVisible} setNewPlaylistIsVisible={setNewPlaylistIsVisible}/>
+                <NewPlaylist newPlaylistIsVisible={newPlaylistIsVisible} setNewPlaylistIsVisible={setNewPlaylistIsVisible} />
             )}
             <div className={expanded ? style.divPlaylistExpanded : style.divPlaylist}>
                 {playlists.map((playlist, index) => (
