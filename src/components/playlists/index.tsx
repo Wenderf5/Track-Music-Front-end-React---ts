@@ -5,6 +5,7 @@ import Buttom from '../button';
 import Playlist from './_components/playlist';
 import NewPlaylist from './_components/newPlaylist';
 import { PlaylistContext } from '../../context/playlist';
+import { Link } from 'react-router-dom';
 import capa6 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
 function Playlists() {
@@ -37,7 +38,9 @@ function Playlists() {
             )}
             <div className={expanded ? style.divPlaylistExpanded : style.divPlaylist}>
                 {playlists.map((playlist, index) => (
-                    <Playlist img={capa6} expanded={expanded} key={index} playlist={playlist} />
+                    <Link to={`myPlaylist/${playlist.id}`}>
+                        <Playlist img={capa6} expanded={expanded} key={index} playlist={playlist} />
+                    </Link>
                 ))}
             </div>
         </div>

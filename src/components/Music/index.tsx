@@ -1,5 +1,6 @@
 import style from './index.module.css';
-import Buttom from '../button';
+import Button from '../button';
+import SuspenseMenu from './_components/suspenseMenu';
 import iconePlay from '../../assets/icons/play-regular-240.png';
 import iconePause from '../../assets/icons/pause-regular-240.png';
 import iconePlus from '../../assets/icons/plus-regular-240.png';
@@ -32,6 +33,7 @@ function Music({ track }: Props) {
 
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const [showSuspenseMenu, setShowSuspenseMenu] = useState<boolean>(false);
 
     const playPause = useCallback(() => {
         const audio = audioRef.current;
@@ -81,7 +83,7 @@ function Music({ track }: Props) {
 
             audio.addEventListener('timeupdate', handleTimeUpdate);
             audio.addEventListener('ended', () => {
-                audio.currentTime = 0
+                audio.currentTime = 0;
             });
             return () => {
                 audio.removeEventListener('timeupdate', handleTimeUpdate);
@@ -125,19 +127,9 @@ function Music({ track }: Props) {
     }
     const { playlists } = playlistContext;
 
-    function addMusicPlaylist() {
-        for (let i = 0; i < playlists.length; i++) {
-            if (playlists[i].id === 1) {
-                const musics = playlists[i].musics;
-                musics.push(track as interfaceTrack);
-            }
-            console.log(playlists[i]);
-        }
-    }
-
     return (
-        <main className={style.main} onClick={isPlaying ? reloadMusic : playPause}>
-            <div className={style.imgMusic}>
+        <main className={style.main}>
+            <div className={style.imgMusic} onClick={isPlaying ? reloadMusic : playPause}>
                 <img
                     width="100%"
                     height="100%"
@@ -146,28 +138,35 @@ function Music({ track }: Props) {
                     alt="Musica"
                 />
             </div>
-            <div className={style.divInfo}>
+            <div className={style.divInfo} onClick={isPlaying ? reloadMusic : playPause}>
                 <span>{track?.title || "Alguma coisa"}</span>
                 <span className={style.groupName}>{track?.artist.name}</span>
             </div>
-            <div className={style.divMultMedia}>
-                <div onClick={addMusicPlaylist}>
-                    <Buttom
-                        type='music'
-                        icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
-                    />
-                </div>
-                <Buttom
+            <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)} onMouseOut={() => setShowSuspenseMenu(false)}>
+                <Button
+                    type='music'
+                    icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
+                />
+                {showSuspenseMenu && (
+                    <div onMouseOut={() => setShowSuspenseMenu(false)} onMouseOver={() => setShowSuspenseMenu(true)}>
+                        <SuspenseMenu track={track} />
+                    </div>
+                )}
+            </div>
+            <div className={style.divMultMedia} onClick={isPlaying ? reloadMusic : playPause}>
+                <Button
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={currentMusic === track && isPlaying ? "Pause" : "Play"} />}
                 />
-                <Buttom
+            </div>
+            <div className={style.divMultMedia}>
+                <Button
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
                 />
-            </div>
+            </div >
             <audio ref={audioRef} src={track?.preview} onPause={handlePause}></audio>
-        </main>
+        </main >
     );
 }
 
