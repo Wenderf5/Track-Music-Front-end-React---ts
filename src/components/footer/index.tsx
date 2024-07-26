@@ -1,4 +1,4 @@
-import MultiMedia from './_components/multiMedia';
+import MultiMidia from './_components/multiMidia';
 import MusicMenu from './_components/musicMenu';
 import Sound from './_components/sound';
 import style from './index.module.css';
@@ -7,7 +7,7 @@ function Footer() {
     return (
         <div className={style.divMusicBar}>
             <MusicMenu />
-            <MultiMedia />
+            <MultiMidia />
             <Sound/>
         </div>
     )
