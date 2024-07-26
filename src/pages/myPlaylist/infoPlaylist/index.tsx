@@ -26,7 +26,7 @@ function InfoPlaylist({
             </div>
             <div className={style.divInfo}>
                 <span className={style.playlistName}>{title}</span>
-                <span className={style.creatorName}>Data de criação: {creation_date?.slice(0, 11)}</span>
+                <span className={style.creatorName}>Data de criação: {creation_date}</span>
             </div>
             <div className={style.divBtnHome}>
                 <Link to={'/'}>

@@ -38,7 +38,7 @@ function Playlists() {
             )}
             <div className={expanded ? style.divPlaylistExpanded : style.divPlaylist}>
                 {playlists.map((playlist, index) => (
-                    <Link to={`myPlaylist/${playlist.id}`}>
+                    <Link to={`/myPlaylist/${playlist.id}`} style={{ textDecoration: "none", width: "100%" }}>
                         <Playlist img={capa6} expanded={expanded} key={index} playlist={playlist} />
                     </Link>
                 ))}

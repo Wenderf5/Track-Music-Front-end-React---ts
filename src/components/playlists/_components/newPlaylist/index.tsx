@@ -20,9 +20,13 @@ function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
     const { playlists } = playlistContext;
 
     function newPlaylist() {
+        const year = new Date().getFullYear();
+        const month = new Date().getMonth();
+        const day = new Date().getDay();
         playlists.push({
-            playlistName: inputValue,
             id: 2,
+            playlistName: inputValue,
+            creation_date: `${year}-${month < 10 ? `0` + month : month}-${day < 10 ? `0` + day : day}`,
             musics: [
                 {
                     title: "Music Name",

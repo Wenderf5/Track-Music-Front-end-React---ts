@@ -27,7 +27,7 @@ function MyPlaylist() {
                 setPlaylist(playlists[i]);
             }
         }
-    }, [])
+    }, [playlistID])
 
     return (
         <main className={style.page}>
@@ -39,7 +39,7 @@ function MyPlaylist() {
                     <div className={style.divPlaylist}>
                         <InfoPlaylist
                             title={playlist?.playlistName}
-                        //creation_date={playlist?.creation_date}
+                            creation_date={playlist?.creation_date}
                         //img={playlist?.picture}
                         />
                         <div className={style.divMusic}>
