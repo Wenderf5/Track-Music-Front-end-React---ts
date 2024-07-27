@@ -9,6 +9,8 @@ import TopArtists from './_components/topArtists';
 import TopPlaylists from './_components/topPlaylists';
 import TopMusic from './_components/topMusic';
 import SearchMusicPage from '../../components/searchMusicPage';
+import { Link } from 'react-router-dom';
+import BtnHome from '../../components/btnHome';
 
 function Home() {
     const [searchIsVisible, setSearchIsVisible] = useState(false);
@@ -21,7 +23,12 @@ function Home() {
                 </div>
                 <div className={style.dashborad}>
                     <div className={style.containerSearch}>
-                        <Search setSearchIsVisible={setSearchIsVisible} />
+                        <Search setSearchIsVisible={setSearchIsVisible} searchIsVisible={searchIsVisible} />
+                        <div className={style.divBtnHome} onClick={() => setSearchIsVisible(false)}>
+                            <Link to={'/'}>
+                                <BtnHome />
+                            </Link>
+                        </div>
                     </div>
                     {!searchIsVisible && (
                         <>

@@ -3,9 +3,9 @@
     min-width: 15%;
     width: auto;
     height: 33px;
-    background-color: #101010;
+    background-color: #333;
     color: white;
-    border: 1px white solid;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }

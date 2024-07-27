@@ -11,6 +11,7 @@ import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
 import { PlaylistContext } from '../../context/playlist';
 import { interfaceTrack } from '../../types/track';
+import Loading from '../loading';
 
 interface Props {
     track?: interfaceTrack;
@@ -127,6 +128,10 @@ function Music({ track }: Props) {
     }
     const { playlists } = playlistContext;
 
+    useEffect(() => {
+        setIsPlaying(false);
+    }, [track]);
+
     return (
         <main className={style.main}>
             <div className={style.imgMusic} onClick={isPlaying ? reloadMusic : playPause}>
@@ -139,7 +144,7 @@ function Music({ track }: Props) {
                 />
             </div>
             <div className={style.divInfo} onClick={isPlaying ? reloadMusic : playPause}>
-                <span>{track?.title || "Alguma coisa"}</span>
+                <span className={isPlaying ? style.trackTitleActive : style.trackTitle}>{track?.title || "Alguma coisa"}</span>
                 <span className={style.groupName}>{track?.artist.name}</span>
             </div>
             <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)} onMouseOut={() => setShowSuspenseMenu(false)}>

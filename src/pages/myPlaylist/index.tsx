@@ -40,7 +40,7 @@ function MyPlaylist() {
                         <InfoPlaylist
                             title={playlist?.playlistName}
                             creation_date={playlist?.creation_date}
-                        //img={playlist?.picture}
+                            img={playlist?.img}
                         />
                         <div className={style.divMusic}>
                             <span className={style.music}>Músicas:</span>

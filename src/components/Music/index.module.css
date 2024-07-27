@@ -39,3 +39,11 @@
     font-size: 0.9rem;
     color: #888888;
 }
+
+.trackTitle{
+    color: white;
+}
+
+.trackTitleActive{
+    color: chartreuse;
+}

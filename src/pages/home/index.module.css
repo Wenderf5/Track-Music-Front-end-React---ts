@@ -35,11 +35,20 @@
 .containerSearch {
     margin-top: 10px;
     width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .containerPlaylist{
     width: 5%;
     height: 97%;
+}
+
+.divBtnHome{
+    display: flex;
+    justify-content: end;
+    width: 5%;
 }
 
 ::-webkit-scrollbar {

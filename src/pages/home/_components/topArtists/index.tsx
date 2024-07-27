@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Artist from './_components/Artist';
 import { interfaceTopArtists } from '../../../../types/topArtists';
+import Loading from '../../../../components/loading';
 
 function TopArtists() {
-    const [artists, setArtist] = useState<interfaceTopArtists[]>([]);
+    const [artists, setArtist] = useState<interfaceTopArtists[] | null>(null);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -24,11 +25,17 @@ function TopArtists() {
         fetchData();
     }, []);
 
+    if (!artists) {
+        return (
+            <Loading />
+        )
+    }
+
     return (
         <div className={style.divTopArtists}>
             <h2>Artistas em alta</h2>
             <div className={style.containerTopArtists}>
-                {artists.map((artist, index) => (
+                {artists?.map((artist, index) => (
                     <Link to={`/artist/${artist.id}`} style={{ textDecoration: "none" }}>
                         <Artist key={index} artist={artist} />
                     </Link>

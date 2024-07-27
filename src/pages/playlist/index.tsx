@@ -9,11 +9,12 @@ import Music from '../../components/Music';
 import InfoPlaylist from './_components/infoPlaylist';
 import { interfacePlaylist } from '../../types/playlist';
 import { interfaceTrack } from '../../types/track';
+import Loading from '../../components/loading';
 
 function Playlist() {
     const { playlistID } = useParams();
     const [playlist, setPlaylist] = useState<interfacePlaylist | undefined>(undefined);
-    const [musics, setMusics] = useState<interfaceTrack[]>([]);
+    const [musics, setMusics] = useState<interfaceTrack[] | null>(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -42,6 +43,33 @@ function Playlist() {
         }
         fetchData();
     }, [])
+
+    if (!musics) {
+        return (
+            <main className={style.page}>
+                <div className={style.divPricipal}>
+                    <div className={style.containerPlaylist}>
+                        <Playlists />
+                    </div>
+                    <div className={style.dashborad}>
+                        <div className={style.divPlaylist}>
+                            <InfoPlaylist
+                                title={playlist?.title}
+                                creation_date={playlist?.creation_date}
+                                creator={playlist?.creator?.name}
+                                img={playlist?.picture}
+                            />
+                            <div className={style.divMusic}>
+                                <Loading />
+                            </div>
+                        </div>
+                    </div>
+                    <InfoMusic img={capa2} />
+                </div>
+                <Footer />
+            </main>
+        )
+    }
 
     return (
         <main className={style.page}>

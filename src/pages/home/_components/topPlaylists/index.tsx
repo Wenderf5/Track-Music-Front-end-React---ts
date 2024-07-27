@@ -2,10 +2,11 @@ import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Playlist from './_components/Playlist';
+import Loading from '../../../../components/loading';
 import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
 
 function TopPlaylists() {
-    const [playlist, setPlaylist] = useState<interfaceTopPlaylists[]>([]);
+    const [playlist, setPlaylist] = useState<interfaceTopPlaylists[] | null>(null);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -24,11 +25,17 @@ function TopPlaylists() {
         fetchData();
     }, []);
 
+    if (!playlist) {
+        return (
+            <Loading />
+        )
+    }
+
     return (
         <div className={style.divTopPlaylists}>
             <h2>Playlistis em alta</h2>
             <div className={style.containerTopPlaylists}>
-                {playlist.map((playlist, index) => (
+                {playlist?.map((playlist, index) => (
                     <Link to={`/playlist/${playlist.id}`} style={{ textDecoration: "none" }}>
                         <Playlist key={index} playlist={playlist} />
                     </Link>

@@ -5,13 +5,14 @@ import { MusicsContext } from '../../context/musics';
 import { useDebounce } from '../../hooks/useDebounce';
 
 interface props {
-    setSearchIsVisible: React.Dispatch<React.SetStateAction<boolean>>
+    setSearchIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    searchIsVisible: boolean;
 }
 
-function Search({ setSearchIsVisible }: props) {
+function Search({ setSearchIsVisible, searchIsVisible }: props) {
     const musicsContext = useContext(MusicsContext);
     if (!musicsContext) {
-        throw new Error('Erro no contexto "musicsContext" Search linha 14.');
+        throw new Error('Erro no contexto "musicsContext" Search linha 15.');
     }
     const { setMusics } = musicsContext;
     const [inputValue, setInputValue] = useState<string>("");
@@ -20,6 +21,12 @@ function Search({ setSearchIsVisible }: props) {
     function getInputValue(e: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(e.target.value);
     }
+
+    useEffect(() => {
+        if (!searchIsVisible) {
+            setInputValue("");
+        }
+    }, [searchIsVisible]);
 
     useEffect(() => {
         try {
@@ -46,7 +53,7 @@ function Search({ setSearchIsVisible }: props) {
 
     return (
         <main className={style.divSearch}>
-            <input className={style.inputSearch} onChange={getInputValue} type="text" placeholder='Procure por uma musica...' />
+            <input className={style.inputSearch} onChange={getInputValue} type="text" placeholder='Procure por uma musica...' value={inputValue} />
             <button className={style.button}>
                 <img src={search} width={"100%"} height={"85%"} alt="search" />
             </button>

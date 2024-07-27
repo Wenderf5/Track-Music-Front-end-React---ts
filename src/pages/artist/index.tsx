@@ -9,11 +9,12 @@ import Music from '../../components/Music';
 import InfoArtist from './_components/infoArtist';
 import { interfaceTrack } from '../../types/track';
 import { interfaceArtists } from '../../types/artists';
+import Loading from '../../components/loading';
 
 function Artist() {
     const { artistID } = useParams();
     const [artist, setArtist] = useState<interfaceArtists | undefined>(undefined);
-    const [musics, setMusics] = useState<interfaceTrack[]>([]);
+    const [musics, setMusics] = useState<interfaceTrack[] | null>(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -44,6 +45,31 @@ function Artist() {
         }
         fetchData();
     }, []);
+
+    if (!musics) {
+        return (
+            <main className={style.page}>
+                <div className={style.divPricipal}>
+                    <div className={style.containerPlaylist}>
+                        <Playlists />
+                    </div>
+                    <div className={style.dashborad}>
+                        <div className={style.divPlaylist}>
+                            <InfoArtist
+                                name={artist?.name}
+                                picture={artist?.picture}
+                            />
+                            <div className={style.divMusic}>
+                                <Loading />
+                            </div>
+                        </div>
+                    </div>
+                    <InfoMusic img={capa2} />
+                </div>
+                <Footer />
+            </main>
+        );
+    }
 
     return (
         <main className={style.page}>

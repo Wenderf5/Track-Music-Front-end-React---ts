@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import BtnHome from '../../../../components/btnHome';
 import style from './index.module.css';
+import Loading from '../../../../components/loading';
 
 interface Props {
     name?: string;
@@ -11,6 +12,15 @@ function InfoArtist({
     name,
     picture
 }: Props) {
+
+    if (!name || !picture) {
+        return (
+            <div className={style.divInfoArtist}>
+                <Loading />
+            </div>
+        )
+    }
+
     return (
         <div className={style.divInfoArtist}>
             <div className={style.artistIMG}>

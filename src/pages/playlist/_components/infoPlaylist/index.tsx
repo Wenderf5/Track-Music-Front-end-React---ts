@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import BtnHome from '../../../../components/btnHome';
 import style from './index.module.css';
+import Loading from '../../../../components/loading';
 
 interface props {
     title: string | undefined;
@@ -15,6 +16,14 @@ function InfoPlaylist({
     creator,
     img
 }: props) {
+
+    if (!title || !creation_date || !creator || !img) {
+        return (
+            <div className={style.divInfoPlaylist}>
+                 <Loading />
+            </div>
+        )
+    }
 
     return (
         <div className={style.divInfoPlaylist}>

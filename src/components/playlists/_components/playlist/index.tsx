@@ -13,7 +13,7 @@ function Playlist({ img, expanded, playlist }: props) {
         <main className={style.main}>
             <div className={expanded ? style.ftTXTExpanded : style.ftTXT}>
                 <div className={expanded ? style.ftPlaylistExpanded : style.ftPlaylist}>
-                    <img src={img} width={"100%"} height={"100%"} style={{ borderRadius: "6px" }} alt="" />
+                    <img src={playlist.img} width={"100%"} height={"100%"} style={{ borderRadius: "6px" }} alt="" />
                 </div>
                 {expanded && (
                     <div className={style.infoPlaylist}>

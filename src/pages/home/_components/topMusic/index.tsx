@@ -2,9 +2,10 @@ import style from './index.module.css';
 import Music from '../../../../components/Music';
 import { useEffect, useState } from 'react';
 import { interfaceTopMusics } from '../../../../types/topMusics';
+import Loading from '../../../../components/loading';
 
 function TopMusic() {
-    const [musics, setMusics] = useState<interfaceTopMusics[]>([]);
+    const [musics, setMusics] = useState<interfaceTopMusics[] | null>(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -24,11 +25,17 @@ function TopMusic() {
         fetchData();
     }, [])
 
+    if (!musics) {
+        return (
+            <Loading />
+        )
+    }
+
     return (
         <div className={style.divTopMusics}>
             <h2>Musicas em alta</h2>
             <div className={style.containerTopMusics}>
-                {musics.map((track, index) => (
+                {musics?.map((track, index) => (
                     <Music key={index} track={track} />
                 ))}
             </div>

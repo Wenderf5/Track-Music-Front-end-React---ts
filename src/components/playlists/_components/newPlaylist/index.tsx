@@ -1,32 +1,51 @@
+import React, { useContext, useState } from 'react';
 import style from './index.module.css';
-import { useContext, useState } from 'react';
 import { PlaylistContext } from '../../../../context/playlist';
 import Buttom from './_components/buttom';
 
-interface props {
+interface Props {
     newPlaylistIsVisible: boolean;
     setNewPlaylistIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
+const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVisible }) => {
     const [inputValue, setInputValue] = useState<string>("");
-    function getInputValue(e: React.ChangeEvent<HTMLInputElement>) {
-        setInputValue(e.target.value)
-    }
+    const [Photograph, setPhotograph] = useState<string | null>(null);
     const playlistContext = useContext(PlaylistContext);
+
     if (!playlistContext) {
         throw new Error("Erro no contexto playlists linha 20");
     }
+
     const { playlists } = playlistContext;
 
-    function newPlaylist() {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
+    }
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPhotograph(reader.result as string);
+            };
+            reader.readAsDataURL(selectedFile);
+        } else {
+            setPhotograph(null);
+        }
+    }
+
+    const newPlaylist = () => {
         const year = new Date().getFullYear();
-        const month = new Date().getMonth();
-        const day = new Date().getDay();
+        const month = new Date().getMonth() + 1;
+        const day = new Date().getDate();
+
         playlists.push({
-            id: 2,
+            id: playlists.length + 1,
             playlistName: inputValue,
             creation_date: `${year}-${month < 10 ? `0` + month : month}-${day < 10 ? `0` + day : day}`,
+            img: Photograph,
             musics: [
                 {
                     title: "Music Name",
@@ -40,7 +59,7 @@ function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
                     }
                 }
             ]
-        })
+        });
     }
 
     return (
@@ -49,19 +68,22 @@ function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
                 <span>Nova playlist</span>
             </div>
             <div className={style.containerInput}>
-                <input className={style.inputTXT} onChange={getInputValue} type="text" placeholder='Nome da playlist' />
-                <Buttom txt='Foto' />
+                <input className={style.inputTXT} onChange={handleInputChange} type="text" placeholder='Nome da playlist' />
+                <label className={style.customFileUpload}>
+                    <input type="file" onChange={handleFileChange} accept="image/*" />
+                    Foto
+                </label>
             </div>
             <div className={style.containerBTN}>
                 <div onClick={() => setNewPlaylistIsVisible(!newPlaylistIsVisible)}>
                     <Buttom txt='Cancelar' />
                 </div>
-                <div onClick={() => setNewPlaylistIsVisible(!newPlaylistIsVisible)}>
-                    <Buttom txt='Salvar' func={newPlaylist} />
+                <div onClick={() => { newPlaylist(); setNewPlaylistIsVisible(!newPlaylistIsVisible); }}>
+                    <Buttom txt='Salvar' />
                 </div>
             </div>
         </main>
-    )
+    );
 }
 
 export default NewPlaylist;
