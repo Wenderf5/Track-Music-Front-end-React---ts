@@ -14,7 +14,7 @@ function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
 
     const playlistContext = useContext(PlaylistContext);
     if (!playlistContext) {
-        throw new Error("Erro no contexto 'playlists' linha 20");
+        throw new Error("Erro no contexto 'components/playlists/_components/newPlaylist' linha 17");
     }
     const { playlists, setPlaylists } = playlistContext;
 
