@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import style from './index.module.css';
 import { PlaylistContext } from '../../../../context/playlist';
-import Buttom from './_components/buttom';
+import Button from './_components/buttom';
 
 interface Props {
     newPlaylistIsVisible: boolean;
@@ -10,21 +10,21 @@ interface Props {
 
 const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVisible }) => {
     const [inputValue, setInputValue] = useState<string>("");
-    const [Photograph, setPhotograph] = useState<string | null>(null);
+    const [photograph, setPhotograph] = useState<string | undefined>(undefined);
     const playlistContext = useContext(PlaylistContext);
 
     if (!playlistContext) {
         throw new Error("Erro no contexto playlists linha 20");
     }
 
-    const { playlists } = playlistContext;
+    const { playlists, setPlaylists } = playlistContext;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
     }
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedFile = e.target.files[0];
+        const selectedFile = e.target.files?.[0];
         if (selectedFile) {
             const reader = new FileReader();
             reader.onloadend = () => {
@@ -32,20 +32,21 @@ const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVi
             };
             reader.readAsDataURL(selectedFile);
         } else {
-            setPhotograph(null);
+            setPhotograph(undefined);
         }
     }
 
     const newPlaylist = () => {
-        const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
-        const day = new Date().getDate();
+        if (!inputValue.trim()) {
+            alert("O nome da playlist não pode estar vazio.");
+            return;
+        }
 
-        playlists.push({
+        const newPlaylist = {
             id: playlists.length + 1,
             playlistName: inputValue,
-            creation_date: `${year}-${month < 10 ? `0` + month : month}-${day < 10 ? `0` + day : day}`,
-            img: Photograph,
+            creation_date: new Date().toISOString().split('T')[0],
+            img: photograph,
             musics: [
                 {
                     title: "Music Name",
@@ -59,7 +60,9 @@ const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVi
                     }
                 }
             ]
-        });
+        };
+
+        setPlaylists([...playlists, newPlaylist]);
     }
 
     return (
@@ -68,18 +71,29 @@ const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVi
                 <span>Nova playlist</span>
             </div>
             <div className={style.containerInput}>
-                <input className={style.inputTXT} onChange={handleInputChange} type="text" placeholder='Nome da playlist' />
+                <input 
+                    className={style.inputTXT} 
+                    onChange={handleInputChange} 
+                    type="text" 
+                    placeholder='Nome da playlist' 
+                    aria-label="Nome da playlist"
+                />
                 <label className={style.customFileUpload}>
-                    <input type="file" onChange={handleFileChange} accept="image/*" />
+                    <input 
+                        type="file" 
+                        onChange={handleFileChange} 
+                        accept="image/*" 
+                        aria-label="Carregar foto da playlist"
+                    />
                     Foto
                 </label>
             </div>
             <div className={style.containerBTN}>
                 <div onClick={() => setNewPlaylistIsVisible(!newPlaylistIsVisible)}>
-                    <Buttom txt='Cancelar' />
+                    <Button txt='Cancelar' />
                 </div>
                 <div onClick={() => { newPlaylist(); setNewPlaylistIsVisible(!newPlaylistIsVisible); }}>
-                    <Buttom txt='Salvar' />
+                    <Button txt='Salvar' />
                 </div>
             </div>
         </main>

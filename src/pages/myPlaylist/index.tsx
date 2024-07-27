@@ -6,14 +6,13 @@ import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
 import Music from '../../components/Music';
-import InfoPlaylist from './infoPlaylist';
-import { interfacePlaylist } from '../../types/playlist';
-import { interfaceTrack } from '../../types/track';
+import InfoPlaylist from './_components/infoPlaylist';
 import { PlaylistContext } from '../../context/playlist';
+import { myPlaylist } from '../../types/myPlaylist';
 
 function MyPlaylist() {
     const { playlistID } = useParams();
-    const [playlist, setPlaylist] = useState<any>();
+    const [playlist, setPlaylist] = useState<myPlaylist>();
 
     const playlistContext = useContext(PlaylistContext);
     if (!playlistContext) {

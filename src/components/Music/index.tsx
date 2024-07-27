@@ -9,9 +9,7 @@ import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
 import { useRef, useState, useContext, useEffect, useCallback } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
-import { PlaylistContext } from '../../context/playlist';
 import { interfaceTrack } from '../../types/track';
-import Loading from '../loading';
 
 interface Props {
     track?: interfaceTrack;
@@ -121,12 +119,6 @@ function Music({ track }: Props) {
         setCurrentMusic(track);
         setIsPlaying(false);
     }
-
-    const playlistContext = useContext(PlaylistContext);
-    if (!playlistContext) {
-        throw new Error('Erro no contexto "volumeContext" Music linha 92.');
-    }
-    const { playlists } = playlistContext;
 
     useEffect(() => {
         setIsPlaying(false);

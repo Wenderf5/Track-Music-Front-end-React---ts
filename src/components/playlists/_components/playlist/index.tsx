@@ -3,12 +3,11 @@ import style from './index.module.css';
 import { Trash2 } from 'lucide-react';
 
 interface props {
-    img: any
     expanded: boolean
     playlist: any
 }
 
-function Playlist({ img, expanded, playlist }: props) {
+function Playlist({ expanded, playlist }: props) {
     return (
         <main className={style.main}>
             <div className={expanded ? style.ftTXTExpanded : style.ftTXT}>

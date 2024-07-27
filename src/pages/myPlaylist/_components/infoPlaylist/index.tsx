@@ -1,18 +1,16 @@
 import { Link } from 'react-router-dom';
-import BtnHome from '../../../components/btnHome';
+import BtnHome from '../../../../components/btnHome';
 import style from './index.module.css';
 
 interface props {
     title: string | undefined;
-    creation_date?: string | undefined;
-    creator?: string | undefined;
-    img?: string | undefined;
+    creation_date: string | undefined;
+    img: string | undefined;
 }
 
 function InfoPlaylist({
     title,
     creation_date,
-    creator,
     img
 }: props) {
 

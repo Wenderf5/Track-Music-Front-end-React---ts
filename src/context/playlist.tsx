@@ -1,18 +1,10 @@
 import { createContext, useState } from "react";
-import { interfaceTrack } from "../types/track";
+import { myPlaylist } from "../types/myPlaylist";
 import capa from '../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 
 interface playlistInterface {
-    playlists: [
-        {
-            id: number,
-            playlistName: string,
-            creation_date: string,
-            img: string | null,
-            musics: interfaceTrack[]
-        }
-    ];
-    setPlaylists: React.Dispatch<React.SetStateAction<[{ id: number, playlistName: string, creation_date: string, img: string | null, musics: interfaceTrack[] }]>>;
+    playlists: myPlaylist[];
+    setPlaylists: React.Dispatch<React.SetStateAction<myPlaylist[]>>;
 }
 
 export const PlaylistContext = createContext<playlistInterface | undefined>(undefined);
@@ -21,7 +13,7 @@ export function PlaylistContextProvider({ children }: { children: React.ReactNod
     const year = new Date().getFullYear();
     const month = new Date().getMonth() + 1;
     const day = new Date().getDay();
-    const [playlists, setPlaylists] = useState<[{ id: number, playlistName: string, creation_date: string, img: string | null, musics: interfaceTrack[] }]>([
+    const [playlists, setPlaylists] = useState<myPlaylist[]>([
         {
             id: 1,
             playlistName: "Playlist 1",
