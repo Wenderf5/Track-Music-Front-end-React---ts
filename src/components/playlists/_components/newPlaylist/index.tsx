@@ -1,22 +1,21 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import style from './index.module.css';
 import { PlaylistContext } from '../../../../context/playlist';
 import Button from './_components/buttom';
 
-interface Props {
+interface props {
     newPlaylistIsVisible: boolean;
     setNewPlaylistIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVisible }) => {
+function NewPlaylist({ newPlaylistIsVisible, setNewPlaylistIsVisible }: props) {
     const [inputValue, setInputValue] = useState<string>("");
     const [photograph, setPhotograph] = useState<string | undefined>(undefined);
+
     const playlistContext = useContext(PlaylistContext);
-
     if (!playlistContext) {
-        throw new Error("Erro no contexto playlists linha 20");
+        throw new Error("Erro no contexto 'playlists' linha 20");
     }
-
     const { playlists, setPlaylists } = playlistContext;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,18 +70,18 @@ const NewPlaylist: React.FC<Props> = ({ newPlaylistIsVisible, setNewPlaylistIsVi
                 <span>Nova playlist</span>
             </div>
             <div className={style.containerInput}>
-                <input 
-                    className={style.inputTXT} 
-                    onChange={handleInputChange} 
-                    type="text" 
-                    placeholder='Nome da playlist' 
+                <input
+                    className={style.inputTXT}
+                    onChange={handleInputChange}
+                    type="text"
+                    placeholder='Nome da playlist'
                     aria-label="Nome da playlist"
                 />
                 <label className={style.customFileUpload}>
-                    <input 
-                        type="file" 
-                        onChange={handleFileChange} 
-                        accept="image/*" 
+                    <input
+                        type="file"
+                        onChange={handleFileChange}
+                        accept="image/*"
                         aria-label="Carregar foto da playlist"
                     />
                     Foto
