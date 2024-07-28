@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
 
 interface VolumeContextInterface {
-    volumeCon: number
-    setVolumeCon: React.Dispatch<React.SetStateAction<number>>
-    volumeMutedCon: boolean
-    setVolumeMutedCon: React.Dispatch<React.SetStateAction<boolean>>
+    volumeCon: number;
+    setVolumeCon: React.Dispatch<React.SetStateAction<number>>;
+    volumeMutedCon: boolean;
+    setVolumeMutedCon: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const VolumeContext = createContext<VolumeContextInterface | undefined>(undefined);

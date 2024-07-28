@@ -1,7 +1,7 @@
 import { createContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 import { interfaceTrack } from "../types/track";
 
-interface ContextType {
+interface currentMusicContextInterface {
     currentMusic: interfaceTrack | undefined;
     setCurrentMusic: Dispatch<SetStateAction<interfaceTrack | undefined>>;
     currentMusicDuration: number | undefined;
@@ -18,7 +18,7 @@ interface ContextType {
     setPlayingTrackId: Dispatch<SetStateAction<number | undefined>>;
 }
 
-export const CurrentMusicContext = createContext<ContextType | undefined>(undefined);
+export const CurrentMusicContext = createContext<currentMusicContextInterface | undefined>(undefined);
 
 export function CurrentMusicContextProvider({ children }: { children: ReactNode }) {
     const [currentMusic, setCurrentMusic] = useState<interfaceTrack | undefined>(undefined);

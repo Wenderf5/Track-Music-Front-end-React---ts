@@ -14,7 +14,7 @@ function SearchMusicPage() {
     return (
         <main className={style.main}>
             <h3>Resultado da pesquisa:</h3>
-            {musics.map((track: interfaceTrack, index: number) => (
+            {musics?.map((track: interfaceTrack, index: number) => (
                 <Music key={index} track={track} />
             ))}
         </main>

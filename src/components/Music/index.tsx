@@ -6,13 +6,13 @@ import iconePause from '../../assets/icons/pause-regular-240.png';
 import iconePlus from '../../assets/icons/plus-regular-240.png';
 import iconeDeezerActive from '../../assets/icons/deezer-logo-active-240.png';
 import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
-import { useRef, useState, useContext, useEffect, useCallback } from 'react';
+import { useRef, useState, useContext, useEffect } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 import { VolumeContext } from '../../context/volumeContext';
 import { interfaceTrack } from '../../types/track';
 
 interface Props {
-    track?: interfaceTrack;
+    track: interfaceTrack;
 }
 
 function Music({ track }: Props) {
@@ -34,7 +34,7 @@ function Music({ track }: Props) {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [showSuspenseMenu, setShowSuspenseMenu] = useState<boolean>(false);
 
-    const playPause = useCallback(() => {
+    const playPause = () => {
         const audio = audioRef.current;
         setAudioRef(audioRef);
         if (!audio) {
@@ -56,13 +56,13 @@ function Music({ track }: Props) {
             audio.play().then(() => {
                 setIsPlaying(true);
             }).catch((error) => {
-                console.error("Erro ao tocar a música:", error);
+                console.log("Erro ao tocar a música:", error);
             });
         }
 
         setCurrentMusic(track);
         setCurrentMusicDuration(Math.round(audio.duration));
-    }, [isPlaying, track, setCurrentMusic, setCurrentMusicDuration, setAudioRef]);
+    };
 
     const handlePause = () => {
         setIsPlaying(false);
@@ -71,7 +71,7 @@ function Music({ track }: Props) {
     useEffect(() => {
         setCurrentMusicTooglePlay(() => playPause);
         setCurrentMusicIsPlaying(isPlaying);
-    }, [playPause, isPlaying, setCurrentMusicTooglePlay, setCurrentMusicIsPlaying]);
+    }, [isPlaying]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -131,13 +131,13 @@ function Music({ track }: Props) {
                     width="100%"
                     height="100%"
                     style={{ borderRadius: '3px' }}
-                    src={track?.album.cover_big}
-                    alt="Musica"
+                    src={track.album.cover_big}
+                    alt="Music img"
                 />
             </div>
             <div className={style.divInfo} onClick={isPlaying ? reloadMusic : playPause}>
-                <span className={isPlaying ? style.trackTitleActive : style.trackTitle}>{track?.title || "Alguma coisa"}</span>
-                <span className={style.groupName}>{track?.artist.name}</span>
+                <span className={isPlaying ? style.trackTitleActive : style.trackTitle}>{track.title}</span>
+                <span className={style.groupName}>{track.artist.name}</span>
             </div>
             <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)} onMouseOut={() => setShowSuspenseMenu(false)}>
                 <Button
@@ -150,19 +150,19 @@ function Music({ track }: Props) {
                     </div>
                 )}
             </div>
-            <div className={style.divMultMedia} onClick={isPlaying ? reloadMusic : playPause}>
+            <div className={style.divMultMedia} onClick={playPause}>
                 <Button
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={currentMusic === track && isPlaying ? "Pause" : "Play"} />}
                 />
             </div>
-            <div className={style.divMultMedia}>
+            <div className={style.divMultMedia} onClick={isPlaying ? reloadMusic : playPause}>
                 <Button
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
                 />
             </div >
-            <audio ref={audioRef} src={track?.preview} onPause={handlePause}></audio>
+            <audio ref={audioRef} src={track.preview} onPause={handlePause}></audio>
         </main >
     );
 }

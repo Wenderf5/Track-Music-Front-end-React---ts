@@ -1,14 +1,15 @@
 import { createContext, useState } from "react";
+import { interfaceTrack } from "../types/track";
 
-interface context {
-    musics: any
-    setMusics: React.Dispatch<React.SetStateAction<string>>
+interface musicsContextInterface {
+    musics: interfaceTrack[] | undefined;
+    setMusics: React.Dispatch<React.SetStateAction<interfaceTrack[] | undefined>>;
 }
 
-export const MusicsContext = createContext<context | undefined>(undefined);
+export const MusicsContext = createContext<musicsContextInterface | undefined>(undefined);
 
 export function MusicsContextProvider({ children }: { children: React.ReactNode }) {
-    const [musics, setMusics] = useState<any>(undefined);
+    const [musics, setMusics] = useState<interfaceTrack[] | undefined>(undefined);
 
     return (
         <MusicsContext.Provider value={{ musics, setMusics }}>
