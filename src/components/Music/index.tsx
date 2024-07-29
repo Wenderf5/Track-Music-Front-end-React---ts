@@ -34,13 +34,12 @@ function Music({ track }: Props) {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [showSuspenseMenu, setShowSuspenseMenu] = useState<boolean>(false);
 
-    const playPause = () => {
+    const playPause = async () => {
         const audio = audioRef.current;
-        setAudioRef(audioRef);
         if (!audio) {
             return;
         }
-
+        setAudioRef(audioRef);
         if (isPlaying) {
             audio.pause();
             setIsPlaying(false);
@@ -52,14 +51,15 @@ function Music({ track }: Props) {
                     player.currentTime = 0;
                 }
             });
-
-            audio.play().then(() => {
+            if (audio.src != track.preview) {
+                audio.src = track.preview;
+            }
+            await audio.play().then(() => {
                 setIsPlaying(true);
             }).catch((error) => {
                 console.log("Erro ao tocar a música:", error);
             });
         }
-
         setCurrentMusic(track);
         setCurrentMusicDuration(Math.round(audio.duration));
     };
@@ -162,7 +162,7 @@ function Music({ track }: Props) {
                     icone={<img src={currentMusic === track && isPlaying ? iconeDeezerActive : iconeDeezer} width="23px" style={{ cursor: 'pointer' }} alt="Tocando" />}
                 />
             </div >
-            <audio ref={audioRef} src={track.preview} onPause={handlePause}></audio>
+            <audio ref={audioRef} onPause={handlePause}></audio>
         </main >
     );
 }

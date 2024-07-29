@@ -47,7 +47,7 @@ function MultiMidia() {
                     aria-label="Time"
                     value={currentMusicTime || 0}
                     min={0}
-                    max={currentMusicDuration || 100}
+                    max={currentMusicDuration}
                     onChange={handleChange}
                     sx={{
                         color: 'white',
