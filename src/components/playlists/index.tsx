@@ -36,14 +36,14 @@ function Playlists() {
                 <NewPlaylist newPlaylistIsVisible={newPlaylistIsVisible} setNewPlaylistIsVisible={setNewPlaylistIsVisible} />
             )}
             <div className={expanded ? style.divPlaylistExpanded : style.divPlaylist}>
-                {playlists.map((playlist, index) => (
-                    <Link to={`/myPlaylist/${playlist.id}`} style={{ textDecoration: "none", width: "100%" }}>
-                        <Playlist expanded={expanded} key={index} playlist={playlist} />
+                {playlists.map((playlist) => (
+                    <Link key={playlist.id} to={`/myPlaylist/${playlist.id}`} style={{ textDecoration: "none", width: "100%" }}>
+                        <Playlist expanded={expanded} playlist={playlist} />
                     </Link>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default Playlists
+export default Playlists;

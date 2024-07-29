@@ -28,21 +28,21 @@ function TopArtists() {
     if (!artists) {
         return (
             <Loading />
-        )
+        );
     }
 
     return (
         <div className={style.divTopArtists}>
             <h2>Artistas em alta</h2>
             <div className={style.containerTopArtists}>
-                {artists?.map((artist, index) => (
-                    <Link to={`/artist/${artist.id}`} style={{ textDecoration: "none" }}>
-                        <Artist key={index} artist={artist} />
+                {artists.map((artist) => (
+                    <Link key={artist.id} to={`/artist/${artist.id}`} style={{ textDecoration: "none" }}>
+                        <Artist artist={artist} />
                     </Link>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default TopArtists
+export default TopArtists;

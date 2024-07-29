@@ -28,21 +28,21 @@ function TopPlaylists() {
     if (!playlist) {
         return (
             <Loading />
-        )
+        );
     }
 
     return (
         <div className={style.divTopPlaylists}>
-            <h2>Playlistis em alta</h2>
+            <h2>Playlists em alta</h2>
             <div className={style.containerTopPlaylists}>
-                {playlist?.map((playlist, index) => (
-                    <Link to={`/playlist/${playlist.id}`} style={{ textDecoration: "none" }}>
-                        <Playlist key={index} playlist={playlist} />
+                {playlist.map((playlist) => (
+                    <Link key={playlist.id} to={`/playlist/${playlist.id}`} style={{ textDecoration: "none" }}>
+                        <Playlist playlist={playlist} />
                     </Link>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default TopPlaylists
+export default TopPlaylists;

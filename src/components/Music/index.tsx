@@ -113,7 +113,7 @@ function Music({ track }: Props) {
     function reloadMusic() {
         const audio = audioRef.current;
         if (audio) {
-            audio.load();
+            audio.currentTime = 0;
             audio.play().then(() => setIsPlaying(true));
         }
         setCurrentMusic(track);

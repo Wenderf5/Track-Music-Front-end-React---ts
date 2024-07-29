@@ -35,7 +35,7 @@ function TopMusic() {
         <div className={style.divTopMusics}>
             <h2>Musicas em alta</h2>
             <div className={style.containerTopMusics}>
-                {musics?.map((track, index) => (
+                {musics.map((track, index) => (
                     <Music key={index} track={track} />
                 ))}
             </div>
