@@ -14,17 +14,23 @@
     flex-direction: column;
     width: 75%;
     color: white;
-    padding-left: 15px;
     gap: 10px;
 }
 
 .ArtistName{
+    width: 100%;
     font-size: 5rem;
     font-weight: 600;
+    margin-left: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .divBtnHome{
     display: flex;
-    justify-content: end;
+    align-items: center;
+    justify-content: center;
     width: 5%;
+    height: 25%;
 }

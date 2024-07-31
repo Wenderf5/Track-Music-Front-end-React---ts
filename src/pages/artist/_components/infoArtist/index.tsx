@@ -32,8 +32,8 @@ function InfoArtist({
             <div className={style.divInfo}>
                 <span className={style.ArtistName}>{name}</span>
             </div>
-            <div className={style.divBtnHome}>
-                <Link to={'/'}>
+            <div className={style.divBtnHome} >
+                <Link to={'/'}  style={{height: "100%", width: "100%"}}>
                     <BtnHome />
                 </Link>
             </div>

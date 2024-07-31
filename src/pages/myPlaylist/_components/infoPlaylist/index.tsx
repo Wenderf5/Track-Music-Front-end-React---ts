@@ -24,10 +24,10 @@ function InfoPlaylist({
             </div>
             <div className={style.divInfo}>
                 <span className={style.playlistName}>{title}</span>
-                <span className={style.creatorName}>Data de criação: {creation_date}</span>
+                <span className={style.creationDate}>Data de criação: {creation_date}</span>
             </div>
             <div className={style.divBtnHome}>
-                <Link to={'/'}>
+                <Link to={'/'} style={{height: "100%", width: "100%"}}>
                     <BtnHome />
                 </Link>
             </div>
