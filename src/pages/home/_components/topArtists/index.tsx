@@ -33,10 +33,10 @@ function TopArtists() {
 
     return (
         <div className={style.divTopArtists}>
-            <h2>Artistas em alta</h2>
+            <h2 style={{ overflow: 'hidden', whiteSpace: "nowrap" }}>Artistas em alta</h2>
             <div className={style.containerTopArtists}>
                 {artists.map((artist) => (
-                    <Link key={artist.id} to={`/artist/${artist.id}`} style={{ textDecoration: "none" }}>
+                    <Link key={artist.id} to={`/artist/${artist.id}`} style={{ textDecoration: "none", width: "16%", height: "100%" }}>
                         <Artist artist={artist} />
                     </Link>
                 ))}

@@ -1,6 +1,5 @@
 .main {
     width: 100%;
-    height: 60px;
     border-radius: 6px;
     box-shadow: 0px 0px 10px #101010;
     cursor: pointer;
@@ -13,32 +12,37 @@
 }
 
 .infoPlaylist{
+    font-size: 1.2rem;
+    width: 83%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
 }
 
 .creationDate{
+    width: 100%;
     font-size: 0.7rem;
     overflow: hidden;
-}
-
-.main:hover {
-    width: 100%;
-    height: 60px;
-    border-radius: 6px;
-    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .ftPlaylist {
-    width: 102%;
-    height: 102%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ftPlaylistExpanded {
     width: 17%;
     height: 85%;
     margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ftTXT {
@@ -51,7 +55,7 @@
 }
 
 .ftTXTExpanded {
-    width: 80%;
+    width: 90%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -63,7 +67,11 @@
 }
 
 .playlistNameExpanded {
+    width: 100%;
     display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .iconeTrash {
@@ -72,4 +80,13 @@
 
 .iconeTrashExpanded {
     display: block;
+}
+
+.img{
+    border-radius: 6px;
+}
+
+.imgExpanded{
+    border-radius: 6px;
+    margin: 5px;
 }

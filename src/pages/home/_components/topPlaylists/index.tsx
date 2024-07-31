@@ -33,10 +33,10 @@ function TopPlaylists() {
 
     return (
         <div className={style.divTopPlaylists}>
-            <h2>Playlists em alta</h2>
+            <h2 style={{ overflow: 'hidden', whiteSpace: "nowrap" }}>Playlists em alta</h2>
             <div className={style.containerTopPlaylists}>
                 {playlist.map((playlist) => (
-                    <Link key={playlist.id} to={`/playlist/${playlist.id}`} style={{ textDecoration: "none" }}>
+                    <Link key={playlist.id} to={`/playlist/${playlist.id}`} style={{ textDecoration: "none", width: "16%", height: "100%" }}>
                         <Playlist playlist={playlist} />
                     </Link>
                 ))}

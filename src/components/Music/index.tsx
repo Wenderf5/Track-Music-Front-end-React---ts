@@ -128,8 +128,8 @@ function Music({ track }: Props) {
         <main className={style.main}>
             <div className={style.imgMusic} onClick={isPlaying ? reloadMusic : playPause}>
                 <img
-                    width="100%"
-                    height="100%"
+                    width="85%"
+                    height="85%"
                     style={{ borderRadius: '3px' }}
                     src={track.album.cover_big}
                     alt="Music img"

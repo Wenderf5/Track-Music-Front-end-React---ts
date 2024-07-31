@@ -1,16 +1,15 @@
 .divTopPlaylists {
-    position: relative;
     width: 98%;
+    height: 46%;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-top: 20px;
 }
 
 .containerTopPlaylists {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 200px;
+    height: 85%;
     margin-top: 15px;
 }

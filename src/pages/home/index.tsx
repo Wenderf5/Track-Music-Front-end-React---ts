@@ -1,6 +1,6 @@
 import style from './index.module.css';
 import { useState } from 'react';
-import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
+import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 import InfoMusic from '../../components/infoMusic';
 import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
@@ -25,7 +25,7 @@ function Home() {
                     <div className={style.containerSearch}>
                         <Search setSearchIsVisible={setSearchIsVisible} searchIsVisible={searchIsVisible} />
                         <div className={style.divBtnHome} onClick={() => setSearchIsVisible(false)}>
-                            <Link to={'/'}>
+                            <Link to={'/'} style={{height: "100%", width: "100%"}}>
                                 <BtnHome />
                             </Link>
                         </div>

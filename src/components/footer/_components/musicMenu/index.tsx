@@ -16,8 +16,8 @@ function MusicMenu() {
                 <img src={currentMusic ? currentMusic.album.cover_big : capa6} width={"100%"} height={"100%"} style={{ borderRadius: "4px" }} alt="" />
             </div>
             <div className={style.containerMusicName}>
-                <span>{currentMusic ? currentMusic.title : "Heaven and Hell"}</span>
-                <span className={style.txtGroupName}>{currentMusic ? currentMusic.artist.name : "Black sabbath"}</span>
+                <span style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}}>{currentMusic ? currentMusic.title : "Highway to Hell"}</span>
+                <span style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap"}} className={style.txtGroupName}>{currentMusic ? currentMusic.artist.name : "AC/DC"}</span>
             </div>
         </main>
     )

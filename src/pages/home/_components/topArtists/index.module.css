@@ -1,14 +1,14 @@
 .divTopArtists {
     width: 98%;
+    height: 46%;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-top: 20px;
 }
 
 .containerTopArtists {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 200px;
+    height: 85%;
 }

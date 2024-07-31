@@ -13,14 +13,21 @@ function Artist({ artist }: Props) {
     return (
         <main className={style.main}>
             <div className={style.ftArtist}>
-                <img 
-                    src={artist.picture} 
-                    style={{ width: "100%", borderRadius: "50%" }} 
-                    alt={`Foto do artista`} 
-                    onError={handleError} 
+                <img
+                    className={style.artistFt}
+                    src={artist.picture}
+                    alt={`Foto do artista`}
+                    onError={handleError}
                 />
             </div>
-            <p style={{ cursor: "pointer" }}>{artist.name}</p>
+            <p style={{
+                cursor: "pointer",
+                overflow: 'hidden',
+                whiteSpace: "nowrap",
+                width: "80%",
+                textOverflow: "ellipsis",
+                textAlign: "center"
+            }}>{artist.name}</p>
         </main>
     );
 }

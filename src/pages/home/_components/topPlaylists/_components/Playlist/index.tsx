@@ -9,9 +9,19 @@ function Playlist({ playlist }: props) {
     return (
         <main className={style.main}>
             <div className={style.ftPlaylist}>
-                <img src={playlist.picture} style={{ width: "100%", borderRadius: "6px" }} alt="" />
+                <img
+                    className={style.playlistFt}
+                    src={playlist.picture}
+                    alt="" />
             </div>
-            <p style={{ cursor: "pointer", textDecoration: "none"}}>{playlist.title}</p>
+            <p style={{
+                cursor: "pointer",
+                overflow: 'hidden',
+                whiteSpace: "nowrap",
+                width: "80%",
+                textOverflow: "ellipsis",
+                textAlign: "center"
+            }}>{playlist.title}</p>
         </main>
     )
 }

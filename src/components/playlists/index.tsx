@@ -19,16 +19,16 @@ function Playlists() {
 
     return (
         <div className={expanded ? style.playlistBarExpanded : style.playlistBar}>
-            <div className={style.myPlaylists}>
+            <div className={expanded ? style.myPlaylistsExpanded : style.myPlaylists}>
                 {expanded && (<span className={style.myPlayliststxt}>Minhas playlists</span>)}
                 <div className={style.btns}>
                     {expanded && (
                         <div onClick={() => setNewPlaylistIsVisible(!newPlaylistIsVisible)}>
-                            <Buttom type='playlist' icone={<Plus color='#989898' size={30} style={{ marginLeft: "8px" }} />} />
+                            <Buttom type='playlist' icone={<Plus color='#989898' size={30} style={{ marginTop: "3px" }} />} />
                         </div>
                     )}
                     <div className={expanded ? style.containerbtnPlaylistbarExpanded : style.containerbtnPlaylistbar} onClick={() => { setExpanded(!expanded); setNewPlaylistIsVisible(false) }}>
-                        <Buttom type='playlist' icone={expanded ? <ListX color='#989898' size={35} /> : <ListVideo color='#989898' size={35} style={{ marginLeft: "8px" }} />} />
+                        <Buttom type='playlist' icone={expanded ? <ListX color='#989898' size={35} /> : <ListVideo color='#989898' size={35} />} />
                     </div>
                 </div>
             </div>
