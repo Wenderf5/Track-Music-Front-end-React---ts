@@ -4,7 +4,7 @@ import { House } from 'lucide-react';
 function BtnHome() {
     return (
         <main className={style.main}>
-            <House color='rgb(134, 134, 134)' size={"60%"}/>
+            <House color='rgb(134, 134, 134)' size={32}/>
         </main>
     )
 }

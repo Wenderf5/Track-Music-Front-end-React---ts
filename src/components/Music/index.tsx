@@ -83,9 +83,16 @@ function Music({ track }: Props) {
             audio.addEventListener('timeupdate', handleTimeUpdate);
             audio.addEventListener('ended', () => {
                 audio.currentTime = 0;
+                audio.play();
+                setIsPlaying(true);
             });
             return () => {
                 audio.removeEventListener('timeupdate', handleTimeUpdate);
+                audio.addEventListener('ended', () => {
+                    audio.currentTime = 0;
+                    audio.play();
+                    setIsPlaying(true);
+                });
             };
         }
     }, [setCurrentMusicTime]);
@@ -126,29 +133,27 @@ function Music({ track }: Props) {
 
     return (
         <main className={style.main}>
-            <div className={style.imgMusic} onClick={isPlaying ? reloadMusic : playPause}>
-                <img
-                    width="85%"
-                    height="85%"
-                    style={{ borderRadius: '3px' }}
-                    src={track.album.cover_big}
-                    alt="Music img"
-                />
-            </div>
+            <img
+                width="45px"
+                style={{ borderRadius: '3px' }}
+                src={track.album.cover_big}
+                alt="Imagem da musica"
+                onClick={isPlaying ? reloadMusic : playPause}
+            />
             <div className={style.divInfo} onClick={isPlaying ? reloadMusic : playPause}>
                 <span className={isPlaying ? style.trackTitleActive : style.trackTitle}>{track.title}</span>
                 <span className={style.groupName}>{track.artist.name}</span>
             </div>
-            <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)} onMouseOut={() => setShowSuspenseMenu(false)}>
-                <Button
-                    type='music'
-                    icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
-                />
+            <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)}>
                 {showSuspenseMenu && (
                     <div onMouseOut={() => setShowSuspenseMenu(false)} onMouseOver={() => setShowSuspenseMenu(true)}>
                         <SuspenseMenu track={track} />
                     </div>
                 )}
+                <Button
+                    type='music'
+                    icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
+                />
             </div>
             <div className={style.divMultMedia} onClick={playPause}>
                 <Button

@@ -8,19 +8,18 @@ interface props {
 function Playlist({ playlist }: props) {
     return (
         <main className={style.main}>
-            <div className={style.ftPlaylist}>
-                <img
-                    className={style.playlistFt}
-                    src={playlist.picture}
-                    alt="" />
-            </div>
+            <img
+                className={style.playlistFt}
+                src={playlist.picture}
+                alt="Foto da playlist"
+            />
             <p style={{
                 cursor: "pointer",
                 overflow: 'hidden',
                 whiteSpace: "nowrap",
                 width: "80%",
                 textOverflow: "ellipsis",
-                textAlign: "center"
+                textAlign: "center",
             }}>{playlist.title}</p>
         </main>
     )

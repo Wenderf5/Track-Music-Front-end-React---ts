@@ -87,9 +87,11 @@ function Playlist() {
                         />
                         <div className={style.divMusic}>
                             <span className={style.music}>Músicas:</span>
-                            {musics.map((track, index) => (
-                                <Music key={index} track={track} />
-                            ))}
+                            <div className={style.container_musics}>
+                                {musics.map((track, index) => (
+                                    <Music key={index} track={track} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

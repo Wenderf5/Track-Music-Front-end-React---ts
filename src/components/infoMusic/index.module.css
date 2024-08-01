@@ -28,7 +28,7 @@
 
 .bandaName{
     width: 100%;
-    font-size: 2.3vw;
+    font-size: 2rem;
     font-weight: 600;
     overflow: hidden;
     white-space: nowrap;
@@ -37,7 +37,7 @@
 
 .infoMusic{
     width: 100%;
-    font-size: 1.1vw;
+    font-size: 1rem;
     font-family: "Outfit", sans-serif;
     overflow: hidden;
     white-space: nowrap;
@@ -48,7 +48,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.1vw;
+    font-size: 1rem;
     font-family: "Outfit", sans-serif;
     cursor: pointer;
     color: #999999;

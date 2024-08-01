@@ -16,7 +16,7 @@ export function PlaylistContextProvider({ children }: { children: React.ReactNod
     const [playlists, setPlaylists] = useState<myPlaylist[]>([
         {
             id: 1,
-            playlistName: "Playlist 1",
+            playlistName: "Playlist do desenvolvedor",
             creation_date: `${year}-${month < 10 ? `0` + month : month}-${day < 10 ? `0` + day : day}`,
             img: capa,
             musics: [

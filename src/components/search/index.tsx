@@ -55,7 +55,7 @@ function Search({ setSearchIsVisible, searchIsVisible }: props) {
         <main className={style.divSearch}>
             <input className={style.inputSearch} onChange={getInputValue} type="text" placeholder='Procure por uma musica...' value={inputValue} />
             <button className={style.button}>
-                <img src={search} width={"100%"} height={"85%"} alt="search" />
+                <img src={search} width={37} alt="search" />
             </button>
         </main>
     );

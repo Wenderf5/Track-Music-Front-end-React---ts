@@ -12,14 +12,12 @@ function Artist({ artist }: Props) {
 
     return (
         <main className={style.main}>
-            <div className={style.ftArtist}>
-                <img
-                    className={style.artistFt}
-                    src={artist.picture}
-                    alt={`Foto do artista`}
-                    onError={handleError}
-                />
-            </div>
+            <img
+                className={style.artistFt}
+                src={artist.picture}
+                alt={`Foto do artista`}
+                onError={handleError}
+            />
             <p style={{
                 cursor: "pointer",
                 overflow: 'hidden',
