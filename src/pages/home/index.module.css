@@ -48,7 +48,7 @@
 .divBtnHome {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     width: 5%;
     height: 100%;
 }

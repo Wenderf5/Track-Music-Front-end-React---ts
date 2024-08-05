@@ -25,7 +25,7 @@ function Home() {
                     <div className={style.containerSearch}>
                         <Search setSearchIsVisible={setSearchIsVisible} searchIsVisible={searchIsVisible} />
                         <div className={style.divBtnHome} onClick={() => setSearchIsVisible(false)}>
-                            <Link to={'/'} style={{height: "100%", width: "100%"}}>
+                            <Link to={'/'}>
                                 <BtnHome />
                             </Link>
                         </div>

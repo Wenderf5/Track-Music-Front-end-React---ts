@@ -1,5 +1,4 @@
-
-.main{
+.main {
     width: 99%;
     height: 50px;
     display: flex;
@@ -12,9 +11,14 @@
     padding: 3px 5px;
     gap: 10px;
     cursor: pointer;
+    transition: 200ms;
 }
 
-.divInfo{
+.main:hover {
+    background-color: #3e3e3e;
+}
+
+.divInfo {
     width: 100%;
     height: 100%;
     display: flex;
@@ -22,7 +26,7 @@
     justify-content: center;
 }
 
-.divMultMedia{
+.divMultMedia {
     width: 5%;
     height: 80%;
     position: relative;
@@ -32,7 +36,7 @@
     justify-content: center;
 }
 
-.groupName{
+.groupName {
     font-size: 0.9rem;
     color: #888888;
     overflow: hidden;
@@ -40,14 +44,14 @@
     text-overflow: ellipsis;
 }
 
-.trackTitle{
+.trackTitle {
     color: white;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.trackTitleActive{
+.trackTitleActive {
     color: chartreuse;
     overflow: hidden;
     white-space: nowrap;

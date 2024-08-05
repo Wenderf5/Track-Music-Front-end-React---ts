@@ -39,7 +39,7 @@ function InfoPlaylist({
                 <span className={style.creatorName}>Criado por: {creator}</span>
             </div>
             <div className={style.divBtnHome}>
-                <Link to={'/'} style={{height: "100%", width: "100%"}}>
+                <Link to={'/'}>
                     <BtnHome />
                 </Link>
             </div>

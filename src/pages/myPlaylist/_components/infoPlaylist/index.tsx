@@ -27,7 +27,7 @@ function InfoPlaylist({
                 <span className={style.creationDate}>Data de criação: {creation_date}</span>
             </div>
             <div className={style.divBtnHome}>
-                <Link to={'/'} style={{height: "100%", width: "100%"}}>
+                <Link to={'/'}>
                     <BtnHome />
                 </Link>
             </div>
