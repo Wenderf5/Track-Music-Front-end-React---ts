@@ -11,7 +11,7 @@
 }
 
 
-.artistFt{
+.artist_ft{
     border: 1px solid transparent;
     width: 90%;
     height: 90%;
@@ -19,7 +19,7 @@
     transition: 200ms;
 }
 
-.artistFt:hover{
+.artist_ft:hover{
     transform: scale(1.07);
     border: 1px solid #00df60;
 }

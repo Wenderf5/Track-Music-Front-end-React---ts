@@ -32,14 +32,14 @@ function TopMusic() {
     }
 
     return (
-        <div className={style.divTopMusics}>
+        <main className={style.main}>
             <h1 style={{ overflow: 'hidden', whiteSpace: "nowrap" }}>Musicas em alta</h1>
-            <div className={style.containerTopMusics}>
+            <div className={style.container_top_musics}>
                 {musics.map((track, index) => (
                     <Music key={index} track={track} />
                 ))}
             </div>
-        </div>
+        </main>
     )
 }
 

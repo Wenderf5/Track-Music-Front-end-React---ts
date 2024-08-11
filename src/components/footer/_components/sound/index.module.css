@@ -1,17 +1,27 @@
 .main {
-    width: 33.33%;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: end;
     gap: 10px;
 }
 
-.inputRange {
+.input_range {
     width: 150px;
     height: 3px;
     display: flex;
     align-items: center;
-    border-radius: 10px;
     margin-right: 4%;
     gap: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .main {
+        width: 25%;
+        display: none;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+    }
 }

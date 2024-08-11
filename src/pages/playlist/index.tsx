@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg';
 import InfoMusic from '../../components/infoMusic';
-import Playlists from '../../components/playlists';
 import Footer from '../../components/footer';
 import Music from '../../components/Music';
 import InfoPlaylist from './_components/infoPlaylist';
@@ -48,9 +47,7 @@ function Playlist() {
         return (
             <main className={style.page}>
                 <div className={style.divPricipal}>
-                    <div className={style.containerPlaylist}>
-                        <Playlists />
-                    </div>
+                  
                     <div className={style.dashborad}>
                         <div className={style.divPlaylist}>
                             <InfoPlaylist
@@ -74,9 +71,7 @@ function Playlist() {
     return (
         <main className={style.page}>
             <div className={style.divPricipal}>
-                <div className={style.containerPlaylist}>
-                    <Playlists />
-                </div>
+                
                 <div className={style.dashborad}>
                     <div className={style.divPlaylist}>
                         <InfoPlaylist

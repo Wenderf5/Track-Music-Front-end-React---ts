@@ -13,7 +13,7 @@ function Artist({ artist }: Props) {
     return (
         <main className={style.main}>
             <img
-                className={style.artistFt}
+                className={style.artist_ft}
                 src={artist.picture}
                 alt={`Foto do artista`}
                 onError={handleError}

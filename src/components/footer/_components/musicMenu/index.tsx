@@ -12,10 +12,10 @@ function MusicMenu() {
 
     return (
         <main className={style.main}>
-            <img src={currentMusic ? currentMusic.album.cover_big : capa6} width={"13%"} style={{ borderRadius: "4px", marginLeft: "1%" }} alt="Imagem da musica" />
-            <div className={style.containerMusicName}>
-                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentMusic ? currentMusic.title : "Highway to Hell"}</span>
-                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} className={style.txtGroupName}>{currentMusic ? currentMusic.artist.name : "AC/DC"}</span>
+            <img src={currentMusic ? currentMusic.album.cover_big : capa6} width={60} style={{ borderRadius: "4px" }} alt="Imagem da musica" />
+            <div className={style.container_music_name}>
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>{currentMusic ? currentMusic.title : "Highway to Hell"}</span>
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }} className={style.txt_group_name}>{currentMusic ? currentMusic.artist.name : "AC/DC"}</span>
             </div>
         </main>
     )

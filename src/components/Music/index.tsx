@@ -1,9 +1,7 @@
 import style from './index.module.css';
 import Button from '../button';
-import SuspenseMenu from './_components/suspenseMenu';
 import iconePlay from '../../assets/icons/play-regular-240.png';
 import iconePause from '../../assets/icons/pause-regular-240.png';
-import iconePlus from '../../assets/icons/plus-regular-240.png';
 import iconeDeezerActive from '../../assets/icons/deezer-logo-active-240.png';
 import iconeDeezer from '../../assets/icons/deezer-logo-240.png';
 import { useRef, useState, useContext, useEffect } from 'react';
@@ -140,22 +138,11 @@ function Music({ track }: Props) {
                 alt="Imagem da musica"
                 onClick={isPlaying ? reloadMusic : playPause}
             />
-            <div className={style.divInfo} onClick={isPlaying ? reloadMusic : playPause}>
-                <span className={isPlaying ? style.trackTitleActive : style.trackTitle}>{track.title}</span>
-                <span className={style.groupName}>{track.artist.name}</span>
+            <div className={style.div_info} onClick={isPlaying ? reloadMusic : playPause}>
+                <span className={isPlaying ? style.track_title_active : style.track_title}>{track.title}</span>
+                <span className={style.group_name}>{track.artist.name}</span>
             </div>
-            <div className={style.divMultMedia} onClick={() => setShowSuspenseMenu(!showSuspenseMenu)}>
-                {showSuspenseMenu && (
-                    <div onMouseOut={() => setShowSuspenseMenu(false)} onMouseOver={() => setShowSuspenseMenu(true)}>
-                        <SuspenseMenu track={track} />
-                    </div>
-                )}
-                <Button
-                    type='music'
-                    icone={<img src={iconePlus} width="25px" style={{ cursor: 'pointer' }} alt="Adicionar a playlist" />}
-                />
-            </div>
-            <div className={style.divMultMedia} onClick={playPause}>
+            <div className={style.div_multi_midia} onClick={playPause}>
                 <Button
                     type='music'
                     icone={<img src={currentMusic === track && isPlaying ? iconePause : iconePlay} width="25px" style={{ cursor: 'pointer' }} alt={currentMusic === track && isPlaying ? "Pause" : "Play"} />}

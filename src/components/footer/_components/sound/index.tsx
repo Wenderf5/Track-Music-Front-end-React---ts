@@ -35,7 +35,7 @@ function Sound() {
 
     return (
         <main className={style.main}>
-            <div className={style.inputRange}>
+            <div className={style.input_range}>
                 <div onClick={() => setVolumeMutedCon(!volumeMutedCon)}>
                     {volumeMutedCon || volume < 1 ? (
                         <Buttom type='volume' icone={<VolumeX color='white' size={20} />} />

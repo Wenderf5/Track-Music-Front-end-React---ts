@@ -5,11 +5,11 @@ import style from './index.module.css';
 
 function Footer() {
     return (
-        <div className={style.divMusicBar}>
+        <main className={style.main}>
             <MusicMenu />
             <MultiMidia />
             <Sound/>
-        </div>
+        </main>
     )
 }
 

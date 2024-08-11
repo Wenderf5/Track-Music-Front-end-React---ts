@@ -1,7 +1,0 @@
-.playlist{
-    width: 180px;
-    margin: 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}

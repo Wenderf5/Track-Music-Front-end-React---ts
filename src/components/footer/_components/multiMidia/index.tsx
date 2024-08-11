@@ -34,15 +34,19 @@ function MultiMidia() {
 
     return (
         <main className={style.main}>
-            <div className={style.containerOP}>
-                <Buttom type='multimedia' icone={<img src={back} width={"33px"} alt="Back" />} />
+            <div className={style.container_op}>
+                <div className={style.next_back}>
+                    <Buttom type='multimedia' icone={<img src={back} width={"33px"} alt="Back" />} />
+                </div>
                 <div onClick={currentMusicTooglePlay}>
                     <Buttom type='multimedia' icone={<img src={currentMusicIsPlaying ? pause : Play} width={"33px"} alt="Play/Pause" />} />
                 </div>
-                <Buttom type='multimedia' icone={<img src={next} width={"33px"} alt="Next" />} />
+                <div className={style.next_back}>
+                    <Buttom type='multimedia' icone={<img src={next} width={"33px"} alt="Next" />} />
+                </div>
             </div>
-            <div className={style.containerTime}>
-                <span className={style.currentTime}>{!currentMusicTime ? "0:00" : `${Math.floor(currentMusicTime / 60)}:${currentMusicTime % 60 < 10 ? `0${currentMusicTime % 60}` : currentMusicTime % 60}`}</span>
+            <div className={style.container_time}>
+                <span className={style.current_time}>{!currentMusicTime ? "0:00" : `${Math.floor(currentMusicTime / 60)}:${currentMusicTime % 60 < 10 ? `0${currentMusicTime % 60}` : currentMusicTime % 60}`}</span>
                 <Slider
                     aria-label="Time"
                     value={currentMusicTime || 0}
@@ -52,7 +56,6 @@ function MultiMidia() {
                     sx={{
                         color: 'white',
                         height: "2.5px",
-                        width: "85%",
                         '& .MuiSlider-thumb': {
                             display: "none"
                         }

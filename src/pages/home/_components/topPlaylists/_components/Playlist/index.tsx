@@ -9,7 +9,7 @@ function Playlist({ playlist }: props) {
     return (
         <main className={style.main}>
             <img
-                className={style.playlistFt}
+                className={style.playlist_ft}
                 src={playlist.picture}
                 alt="Foto da playlist"
             />
@@ -19,7 +19,7 @@ function Playlist({ playlist }: props) {
                 whiteSpace: "nowrap",
                 width: "80%",
                 textOverflow: "ellipsis",
-                textAlign: "center",
+                textAlign: "center"
             }}>{playlist.title}</p>
         </main>
     )

@@ -52,9 +52,9 @@ function Search({ setSearchIsVisible, searchIsVisible }: props) {
     }, [debouncedInputValue]);
 
     return (
-        <main className={style.divSearch}>
-            <input className={style.inputSearch} onChange={getInputValue} type="text" placeholder='Procure por uma musica...' value={inputValue} />
-            <button className={style.button}>
+        <main className={style.main}>
+            <input className={style.input_search} onChange={getInputValue} type="text" placeholder='Procure por uma musica...' value={inputValue} />
+            <button className={style.lupa}>
                 <img src={search} width={37} alt="search" />
             </button>
         </main>

@@ -1,56 +1,47 @@
-.page {
+.main {
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: #000000;
 }
 
-.divPricipal {
+.container_central {
     width: 99%;
-    height: 88%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    height: 98%;
     gap: 10px;
-}
-
-
-.dashborad {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    background: #121212;
-    border-radius: 10px;
-    width: 70%;
-    height: 97%;
-    overflow: auto;
-    box-shadow: 0px 0px 10px rgb(10, 10, 10);
-}
-
-.containerSearch {
-    margin-top: 10px;
-    width: 98%;
-    height: 8%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
-.containerPlaylist {
-    position: relative;
-    width: 5%;
-    height: 97%;
+.container_principal {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
 }
 
-.divBtnHome {
+.dashborad {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #121212;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: auto;
+}
+
+.container_search {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
-    width: 5%;
-    height: 100%;
+    justify-content: space-between;
+    margin-top: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -60,4 +51,33 @@
 ::-webkit-scrollbar-thumb {
     background-color: #1ab75e;
     border-radius: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .dashborad {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: #121212;
+        border-radius: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .dashborad {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: #121212;
+        border-radius: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: auto;
+    }
 }

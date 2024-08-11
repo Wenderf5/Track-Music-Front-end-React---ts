@@ -7,6 +7,8 @@ import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
 
 function TopPlaylists() {
     const [playlist, setPlaylist] = useState<interfaceTopPlaylists[] | null>(null);
+    const [width, setWidth] = useState<number>(window.innerWidth);
+    const [maxPlaylists, setMaxPlaylists] = useState<number>(6);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -25,23 +27,44 @@ function TopPlaylists() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        function handleResize() {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize);
+        switch (true) {
+            case width <= 1024 && width > 768:
+                setMaxPlaylists(6);
+                break;
+            case width <= 768 && width > 500:
+                setMaxPlaylists(4);
+                break;
+            case width < 500:
+                setMaxPlaylists(3);
+                break;
+        }
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [width]);
+
     if (!playlist) {
         return (
             <Loading />
         );
     }
+    const playlistsToShow = playlist.slice(0, maxPlaylists);
 
     return (
-        <div className={style.divTopPlaylists}>
-            <h1 style={{ overflow: 'hidden', whiteSpace: "nowrap"}}>Playlists em alta</h1>
-            <div className={style.containerTopPlaylists}>
-                {playlist.map((playlist) => (
-                    <Link key={playlist.id} to={`/playlist/${playlist.id}`} style={{ textDecoration: "none", width: "16%" }}>
+        <main className={style.main}>
+            <h1 style={{ overflow: 'hidden', whiteSpace: "nowrap" }}>Playlists em alta</h1>
+            <div className={style.container_top_playlists}>
+                {playlistsToShow.map((playlist) => (
+                    <Link key={playlist.id} to={`/playlist/${playlist.id}`} style={{ textDecoration: "none", width: "100%" }}>
                         <Playlist playlist={playlist} />
                     </Link>
                 ))}
             </div>
-        </div>
+        </main>
     );
 }
 
