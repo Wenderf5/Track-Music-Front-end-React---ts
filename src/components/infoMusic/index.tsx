@@ -1,34 +1,18 @@
 import style from './index.module.css';
-import Buttom from '../button';
-import { ChevronDown } from 'lucide-react';
-import { useContext } from 'react';
-import { CurrentMusicContext } from '../../context/currentMusic';
 
-interface props {
-    img: any
-}
+import capa from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg'
 
-function InfoMusic({ img }: props) {
-    const currentMusicContext = useContext(CurrentMusicContext);
-    if (!currentMusicContext) {
-        throw new Error('Erro no contexto "currentMusicContext" InfoMusic linha 14.');
-    }
-    const { currentMusic } = currentMusicContext;
-
-
+export function InfoMusic() {
     return (
         <main className={style.main}>
-            <div className={style.img_music}>
-                <img src={!currentMusic ? img : currentMusic.album.cover_big} width={"100%"} height={"100%"} style={{ borderRadius: "10px" }} alt="Music foto" />
+            <div className={style.container_img}>
+                <img className={style.img} src={capa} alt="" />
             </div>
-            <div className={style.text}>
-                <span className={style.banda_name}>{!currentMusic ? 'Nome da musica' : currentMusic.title}</span>
-                <span className={style.info_music}>Artista: {!currentMusic ? 'Nome do artista' : currentMusic.artist.name}</span>
-                <span className={style.info_music}>Album: {!currentMusic ? 'Nome do Album' : currentMusic.album.title}</span>
+            <div className={style.info_music_txt}>
+                <span className={style.music_name_txt}>Music Name</span>
+                <span className={style.artist_name_txt}>Artist Name</span>
+                <span className={style.album_name_txt}>Album: Album Name</span>
             </div>
         </main>
     )
 }
-
-export default InfoMusic
-

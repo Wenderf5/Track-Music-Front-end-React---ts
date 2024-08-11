@@ -1,78 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
 .main {
     width: 25%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #121212;
+    background-color: #1D1D1D;
     border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    gap: 10px;
+    padding: 10px;
     color: white;
 }
 
-.img_music {
+.container_img{
     width: 100%;
-    height: 75%;
-    border-radius: 10px;
-    margin-top: 10px;
+    height: 80%;
+    flex-grow: 1;
 }
 
-.text {
+.img {
     width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+.info_music_txt {
+    width: 100%;
+    height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    gap: 10px;
-    padding-left: 5px;
+    justify-content: center;
 }
 
-.banda_name {
+.music_name_txt {
     width: 100%;
-    font-size: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 2.5rem;
     font-weight: 600;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
-.info_music {
+.artist_name_txt {
     width: 100%;
-    font-size: 1rem;
-    font-family: "Outfit", sans-serif;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: rgb(194, 194, 194);
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .main {
-        width: 25%;
-        height: 100%;
-        display: none;
-        flex-direction: column;
-        background: #121212;
-        border-radius: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        gap: 10px;
-        color: white;
-    }
-}
-
-@media (max-width: 768px) {
-    .main {
-        width: 25%;
-        height: 100%;
-        display: none;
-        flex-direction: column;
-        background: #121212;
-        border-radius: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        gap: 10px;
-        color: white;
-    }
+.album_name_txt {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(194, 194, 194);
 }

@@ -3,9 +3,9 @@
     color: white;
 }
 
-.container_top{
+.container_top_musics{
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
 }

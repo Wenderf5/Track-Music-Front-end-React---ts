@@ -1,46 +1,24 @@
 import style from './index.module.css';
-import { useState } from 'react';
-import capa2 from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
-import InfoMusic from '../../components/infoMusic';
-import Footer from '../../components/footer';
-import Search from '../../components/search';
-import TopArtists from './_components/topArtists';
-import TopPlaylists from './_components/topPlaylists';
-import TopMusic from './_components/topMusic';
-import SearchMusicPage from '../../components/searchMusicPage';
-import BtnHome from '../../components/btnHome';
+import { NavBar } from '../../components/NavBar';
+import { TopArtists } from './_components/TopArtists';
+import { TopPlaylists } from './_components/TopPlaylists';
+import { TopMusics } from './_components/TopMusics';
+import { InfoMusic } from '../../components/InfoMusic';
+import { Footer } from '../../components/Footer';
 
-function Home() {
-    const [searchIsVisible, setSearchIsVisible] = useState(false);
-
+export function Home() {
     return (
         <main className={style.main}>
-            <div className={style.container_central}>
-                <div className={style.container_principal}>
-                    <div className={style.dashborad}>
-                        <div className={style.container_search}>
-                            <Search setSearchIsVisible={setSearchIsVisible} searchIsVisible={searchIsVisible} />
-                            <div onClick={() => setSearchIsVisible(false)}>
-                                <BtnHome />
-                            </div>
-                        </div>
-                        {!searchIsVisible && (
-                            <>
-                                <TopArtists />
-                                <TopPlaylists />
-                                <TopMusic />
-                            </>
-                        )}
-                        {searchIsVisible && (
-                            <SearchMusicPage />
-                        )}
-                    </div>
-                    <InfoMusic img={capa2} />
-                </div>
-                <Footer />
+            <div className={style.container_principal}>
+                <section className={style.dashboard}>
+                    <NavBar />
+                    <TopArtists />
+                    <TopPlaylists />
+                    <TopMusics />
+                </section>
+                <InfoMusic />
             </div>
+            <Footer />
         </main>
     )
 }
-
-export default Home

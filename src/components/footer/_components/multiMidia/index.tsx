@@ -1,59 +1,36 @@
 import style from './index.module.css';
-import Buttom from '../../../button';
-import next from '../../../../assets/icons/skip-next-regular-240.png';
-import pause from '../../../../assets/icons/pause.png';
-import Play from '../../../../assets/icons/play.png';
-import back from '../../../../assets/icons/skip-previous-regular-240.png';
-import { useContext } from 'react';
-import { CurrentMusicContext } from '../../../../context/currentMusic';
+import { useState } from 'react';
 import Slider from '@mui/material/Slider';
+import { Button } from './_components/Button';
 
-function MultiMidia() {
-    const currentMusicContext = useContext(CurrentMusicContext);
-    if (!currentMusicContext) {
-        throw new Error('Erro no contexto "currentMusicContext" MultiMedia linha 14.');
-    }
-    const {
-        currentMusicDuration,
-        currentMusicTime,
-        setCurrentMusicTime,
-        currentMusicIsPlaying,
-        currentMusicTooglePlay,
-        audioRef,
-    } = currentMusicContext;
+import iconPause from '../../../../assets/icons/pause.png';
+import iconPlay from '../../../../assets/icons/play.png';
+import iconNext from '../../../../assets/icons/skip-next-regular-240.png';
+import iconBack from '../../../../assets/icons/skip-previous-regular-240.png';
 
+export function Multimidia() {
+    const [position, setPosition] = useState(30);
     const handleChange = (event: Event, newValue: number | number[]) => {
-        console.log(event);
-        const newTime = newValue as number;
-        setCurrentMusicTime(newTime);
-        const audio = audioRef?.current;
-        if (audio) {
-            audio.currentTime = newTime;
-        }
+        setPosition(newValue as number);
     };
 
     return (
         <main className={style.main}>
-            <div className={style.container_op}>
-                <div className={style.next_back}>
-                    <Buttom type='multimedia' icone={<img src={back} width={"33px"} alt="Back" />} />
-                </div>
-                <div onClick={currentMusicTooglePlay}>
-                    <Buttom type='multimedia' icone={<img src={currentMusicIsPlaying ? pause : Play} width={"33px"} alt="Play/Pause" />} />
-                </div>
-                <div className={style.next_back}>
-                    <Buttom type='multimedia' icone={<img src={next} width={"33px"} alt="Next" />} />
-                </div>
+            <div className={style.container_multimidia}>
+                <Button icon={iconBack}/>
+                <Button icon={iconPlay}/>
+                <Button icon={iconNext}/>
             </div>
             <div className={style.container_time}>
-                <span className={style.current_time}>{!currentMusicTime ? "0:00" : `${Math.floor(currentMusicTime / 60)}:${currentMusicTime % 60 < 10 ? `0${currentMusicTime % 60}` : currentMusicTime % 60}`}</span>
+                <span className={style.txt_time}>{"0:00"}</span>
                 <Slider
                     aria-label="Time"
-                    value={currentMusicTime || 0}
+                    value={position}
                     min={0}
-                    max={currentMusicDuration}
+                    max={100}
                     onChange={handleChange}
                     sx={{
+                        flexGrow: "1",
                         color: 'white',
                         height: "2.5px",
                         '& .MuiSlider-thumb': {
@@ -61,10 +38,8 @@ function MultiMidia() {
                         }
                     }}
                 />
-                <span className={style.duration}>{!currentMusicDuration ? "0:00" : `${Math.floor(currentMusicDuration / 60)}:${currentMusicDuration % 60 < 10 ? `0${currentMusicDuration % 60}` : currentMusicDuration % 60}`}</span>
+                <span className={style.txt_time}>{"0:31"}</span>
             </div>
         </main>
-    );
+    )
 }
-
-export default MultiMidia;
