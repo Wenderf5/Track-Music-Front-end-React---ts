@@ -14,7 +14,7 @@ export function Music({ capa }: props) {
     return (
         <main className={style.main}>
             <div className={style.container_info}>
-                <img src={capa} alt="" width={57} style={{ borderRadius: "5px" }} />
+                <img className={style.img} src={capa} alt=""/>
                 <div className={style.container_info_txt}>
                     <span className={style.music_name}>Music Name</span>
                     <span className={style.artist_name}>Artist Name</span>

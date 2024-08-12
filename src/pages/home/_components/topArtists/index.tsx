@@ -17,9 +17,9 @@ export function TopArtists() {
                 <Artists capa={capa1}/>
                 <Artists capa={capa2}/>
                 <Artists capa={capa3}/>
-                <Artists capa={capa4}/>
-                <Artists capa={capa5}/>
-                <Artists capa={capa6}/>
+                <Artists capa={capa1}/>
+                <Artists capa={capa2}/>
+                <Artists capa={capa3}/>
             </div>
         </main>
     )

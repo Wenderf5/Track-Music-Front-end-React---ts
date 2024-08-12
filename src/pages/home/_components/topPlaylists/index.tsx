@@ -16,9 +16,9 @@ export function TopPlaylists() {
                 <Playlists capa={capa6} />
                 <Playlists capa={capa5} />
                 <Playlists capa={capa4} />
-                <Playlists capa={capa3} />
-                <Playlists capa={capa2} />
-                <Playlists capa={capa1} />
+                <Playlists capa={capa6} />
+                <Playlists capa={capa5} />
+                <Playlists capa={capa4} />
             </div>
         </main>
     )

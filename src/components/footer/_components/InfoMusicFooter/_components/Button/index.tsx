@@ -12,7 +12,7 @@ export function Button({ icon }: props) {
             <img
                 src={icon}
                 alt=""
-                className={style.icon}
+                width={30}
             />
         </button>
     )
