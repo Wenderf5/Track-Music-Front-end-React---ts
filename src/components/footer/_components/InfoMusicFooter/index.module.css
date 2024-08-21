@@ -1,4 +1,4 @@
-.mian {
+.main {
     width: 30%;
     display: flex;
     align-items: center;
@@ -6,7 +6,7 @@
 }
 
 .img {
-    width: 77px;
+    width: 67px;
     border-radius: 5%;
 }
 
@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
 
-    .mian {
+    .main {
         width: 100%;
         display: flex;
         align-items: center;
@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 425px) {
 
-    .mian {
+    .main {
         width: 100%;
         display: flex;
         align-items: center;

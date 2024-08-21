@@ -16,7 +16,7 @@
 }
 
 .img {
-    width: 57px;
+    width: 47px;
     border-radius: 5px;
 }
 
@@ -40,6 +40,15 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.music_name_active {
+    width: 100%;
+    font-size: 1.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #1ac14e;
 }
 
 .artist_name {
@@ -70,6 +79,15 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+
+    .music_name_active {
+        width: 100%;
+        font-size: 0.9rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #1ac14e;
     }
     
     .artist_name {

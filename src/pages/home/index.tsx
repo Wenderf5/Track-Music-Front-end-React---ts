@@ -15,7 +15,7 @@ export function Home() {
         <main className={style.main}>
             <div className={style.container_principal}>
                 <section className={style.dashboard}>
-                    <InputSearch setSearchIsVisible={setSearchIsVisible} />
+                    <InputSearch searchIsVisible={searchIsVisible} setSearchIsVisible={setSearchIsVisible} />
                     {!searchIsVisible && (
                         <>
                             <TopArtists />

@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import { MusicsContextProvider } from "../context/musicsContext";
+import { CurrentMusicContextProvider } from "../context/currentMusic";
 
 import { App } from "../App";
 import { Home } from "../pages/Home";
@@ -6,12 +8,20 @@ import { Home } from "../pages/Home";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: (
+            <CurrentMusicContextProvider>
+                <App />
+            </CurrentMusicContextProvider>
+        ),
         children: [
             {
                 path: '/',
                 element: (
-                    <Home />
+                    <CurrentMusicContextProvider>
+                        <MusicsContextProvider>
+                            <Home />
+                        </MusicsContextProvider>
+                    </CurrentMusicContextProvider>
                 )
             }
         ]
