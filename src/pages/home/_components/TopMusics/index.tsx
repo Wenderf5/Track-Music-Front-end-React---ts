@@ -18,7 +18,7 @@ export function TopMusics() {
 
     return (
         <main className={style.main}>
-            <h1>Musicas em alta</h1>
+            <h1 className={style.top_musics_txt}>Musicas em alta</h1>
             <div className={style.container_top_musics}>
                 {topMusics?.map((track, index) => (
                     <Music key={index} music={track} />

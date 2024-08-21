@@ -3,6 +3,10 @@
     color: white;
 }
 
+.top_playlists_txt{
+    font-size: 2rem;
+}
+
 .container_top{
     width: 100%;
     display: flex;

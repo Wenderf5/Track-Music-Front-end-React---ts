@@ -12,7 +12,7 @@ import capa3 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
 export function TopArtists() {
     return (
         <main className={style.main}>
-            <h2>Artistas em alta</h2>
+            <h2 className={style.top_artists_txt}>Artistas em alta</h2>
             <div className={style.container_top}>
                 <Artists capa={capa1}/>
                 <Artists capa={capa2}/>

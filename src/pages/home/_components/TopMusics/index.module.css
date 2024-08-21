@@ -3,6 +3,10 @@
     color: white;
 }
 
+.top_musics_txt{
+    font-size: 2rem;
+}
+
 .container_top_musics{
     width: 100%;
     display: flex;

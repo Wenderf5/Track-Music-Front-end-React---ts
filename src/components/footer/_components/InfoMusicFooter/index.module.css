@@ -16,11 +16,12 @@
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
+    gap: 5px;
 }
 
 .music_name {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
     overflow: hidden;
     white-space: nowrap;
@@ -29,7 +30,7 @@
 
 .artist_name {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #b7b6b6;
     overflow: hidden;
     white-space: nowrap;

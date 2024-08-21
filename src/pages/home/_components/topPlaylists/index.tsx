@@ -11,7 +11,7 @@ import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0.jpg';
 export function TopPlaylists() {
     return (
         <main className={style.main}>
-            <h2>Playlists em alta</h2>
+            <h2 className={style.top_playlists_txt}>Playlists em alta</h2>
             <div className={style.container_top}>
                 <Playlists capa={capa6} />
                 <Playlists capa={capa5} />
