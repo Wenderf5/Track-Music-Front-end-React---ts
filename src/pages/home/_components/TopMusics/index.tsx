@@ -2,6 +2,7 @@ import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { Music } from '../../../../components/Music';
 import { interfaceMusics } from '../../../../types/musics';
+import { Loading } from '../../../../components/Loading';
 
 export function TopMusics() {
     const [topMusics, setTopMusics] = useState<interfaceMusics[] | undefined>(undefined);
@@ -15,6 +16,12 @@ export function TopMusics() {
         }
         fetchData();
     }, [])
+
+    if (!topMusics) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <main className={style.main}>

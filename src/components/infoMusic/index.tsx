@@ -18,8 +18,8 @@ export function InfoMusic() {
             </div>
             <div className={style.info_music_txt}>
                 <span className={style.music_name_txt}>{currentMusic?.title ? currentMusic?.title : "Highway to hell"}</span>
-                <span className={style.artist_name_txt}>{currentMusic?.artist.name ? currentMusic?.artist.name : "AC/DC"}</span>
-                <span className={style.album_name_txt}>{currentMusic?.album.title ? currentMusic?.album.title : "Highway to Hell"}</span>
+                <span className={style.artist_name_txt}>{currentMusic?.artist.name ? "Artista: " + currentMusic?.artist.name : "AC/DC"}</span>
+                <span className={style.album_name_txt}>{currentMusic?.album.title ? "Álbum: " + currentMusic?.album.title : "Highway to Hell"}</span>
             </div>
         </main>
     )
