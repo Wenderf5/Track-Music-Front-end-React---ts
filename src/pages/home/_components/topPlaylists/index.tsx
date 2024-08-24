@@ -2,14 +2,8 @@ import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
 import { Playlists } from './_components/Playlists';
-
-import capa1 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (1).jpg'
-import capa2 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (2).jpg';
-import capa3 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (3).jpg';
-import capa4 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (4).jpg';
-import capa5 from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
-import capa6 from '../../../../assets/img/Capas/500x500-000000-80-0-0.jpg';
 import { Loading } from '../../../../components/Loading';
+import { Link } from 'react-router-dom';
 
 export function TopPlaylists() {
     const [width, setWidth] = useState<number>(window.innerWidth);
@@ -66,7 +60,9 @@ export function TopPlaylists() {
             <h2 className={style.top_playlists_txt}>Playlists em alta</h2>
             <div className={style.container_top}>
                 {playlistsToShow?.map((item, index) => (
-                    <Playlists key={index} playlist={item} />
+                    <Link to={`/playlist/${item.id}`} key={item.id} className={style.link}>
+                        <Playlists key={index} playlist={item} />
+                    </Link>
                 ))}
             </div>
         </main>

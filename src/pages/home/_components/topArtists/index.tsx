@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Artists } from './_components/Artists';
 import { interfaceTopArtist } from '../../../../types/topArtist';
 import { Loading } from '../../../../components/Loading';
+import { Link } from 'react-router-dom';
 
 export function TopArtists() {
     const [width, setWidth] = useState<number>(window.innerWidth);
@@ -59,7 +60,9 @@ export function TopArtists() {
             <h2 className={style.top_artists_txt}>Artistas em alta</h2>
             <div className={style.container_top}>
                 {artistsToShow?.map((item, index) => (
-                    <Artists key={index} artist={item} />
+                    <Link to={`/artist/${item.id}`} key={item.id} className={style.link}>
+                        <Artists key={index} artist={item} />
+                    </Link>
                 ))}
             </div>
         </main>

@@ -1,0 +1,11 @@
+.main{
+
+}
+
+.button{
+    background: rgb(2, 2, 2);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
