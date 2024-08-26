@@ -1,8 +1,15 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useState, useEffect, useContext } from 'react';
-import { MusicsContext } from '../../context/musicsContext';
-import { Search } from 'lucide-react';
 import { useDebounce } from '../../hooks/useDebounce';
+
+//Context
+import { MusicsContext } from '../../context/musicsContext';
+
+//icons
+import { Search } from 'lucide-react';
 
 interface props {
     searchIsVisible: boolean;

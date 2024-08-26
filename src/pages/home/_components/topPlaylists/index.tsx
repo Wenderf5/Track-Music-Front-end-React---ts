@@ -1,6 +1,13 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useEffect, useState } from 'react';
+
+//interfaces
 import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
+
+//Components
 import { Playlists } from './_components/playlists';
 import { Loading } from '../../../../components/loading';
 import { Link } from 'react-router-dom';

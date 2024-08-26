@@ -1,9 +1,18 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useContext, useEffect } from 'react';
+
+//Context
 import { CurrentMusicContext } from '../../../../context/currentMusic';
+
+//Components
 import Slider from '@mui/material/Slider';
-import { Volume2, VolumeX } from 'lucide-react';
 import { Button } from './_components/button';
+
+//Icons
+import { Volume2, VolumeX } from 'lucide-react';
 
 export function Sound() {
     const currentMusicContext = useContext(CurrentMusicContext);

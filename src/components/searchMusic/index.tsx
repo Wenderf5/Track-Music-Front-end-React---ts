@@ -1,6 +1,13 @@
+//CSS
 import style from './index.module.css';
+
+//Context
 import { Music } from '../music';
+
+//Hooks
 import { useContext } from 'react';
+
+//Context
 import { MusicsContext } from '../../context/musicsContext';
 
 export function SearchMusic() {

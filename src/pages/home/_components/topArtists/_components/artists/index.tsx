@@ -1,4 +1,7 @@
+//CSS
 import style from './index.module.css';
+
+//Interfaces
 import { interfaceTopArtist } from '../../../../../../types/topArtist';
 
 interface props {

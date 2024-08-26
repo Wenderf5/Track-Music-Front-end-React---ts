@@ -1,7 +1,14 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useState, useEffect } from 'react';
-import { Artists } from './_components/artists';
+
+//Interfaces
 import { interfaceTopArtist } from '../../../../types/topArtist';
+
+//Components
+import { Artists } from './_components/artists';
 import { Loading } from '../../../../components/loading';
 import { Link } from 'react-router-dom';
 

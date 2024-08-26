@@ -1,3 +1,4 @@
+//CSS
 import style from './index.module.css';
 
 interface props {

@@ -1,4 +1,7 @@
+//CSS
 import style from './index.module.css';
+
+//Components
 import { InfoMusicFooter } from './_components/infoMusicFooter';
 import { Multimidia } from './_components/multimidia';
 import { Sound } from './_components/sound';

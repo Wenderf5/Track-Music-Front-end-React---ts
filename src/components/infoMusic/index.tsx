@@ -1,7 +1,13 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useContext } from 'react';
+
+//Context
 import { CurrentMusicContext } from '../../context/currentMusic';
 
+//Icons
 import capa from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
 export function InfoMusic() {

@@ -1,8 +1,16 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useEffect, useState } from 'react';
+
+//Components
 import { Music } from '../../../../components/music';
-import { interfaceMusics } from '../../../../types/musics';
 import { Loading } from '../../../../components/loading';
+
+//interfaces
+import { interfaceMusics } from '../../../../types/musics';
+
 
 export function TopMusics() {
     const [topMusics, setTopMusics] = useState<interfaceMusics[] | undefined>(undefined);

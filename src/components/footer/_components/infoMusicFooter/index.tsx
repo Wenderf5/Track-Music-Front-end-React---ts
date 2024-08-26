@@ -1,10 +1,18 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useContext } from 'react';
+
+//Context
 import { CurrentMusicContext } from '../../../../context/currentMusic';
+
+//Components
 import { Button } from './_components/button';
+
+//Icons
 //import iconPause from '../../../../assets/icons/pause.png';
 import iconPlay from '../../../../assets/icons/play.png';
-
 import capa from '../../../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
 export function InfoMusicFooter() {

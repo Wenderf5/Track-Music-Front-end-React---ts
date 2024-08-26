@@ -1,8 +1,19 @@
+//CSS
 import style from './index.module.css';
+
+//Components
 import { Button } from './_components/button';
+
+//interfaces
 import { interfaceMusics } from '../../types/musics';
+
+//Hooks
 import { useContext, useEffect, useState } from 'react';
+
+//Context
 import { CurrentMusicContext } from '../../context/currentMusic';
+
+//Icons
 import iconPlay from '../../assets/icons/play-regular-240.png';
 import iconPause from '../../assets/icons/pause-regular-240.png';
 import iconDeezer from '../../assets/icons/deezer-logo-240.png';

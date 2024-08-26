@@ -1,6 +1,13 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useState, useContext, useEffect } from 'react';
+
+//Context
 import { CurrentMusicContext } from '../../../../context/currentMusic';
+
+//Components
 import Slider from '@mui/material/Slider';
 import { Button } from './_components/button';
 

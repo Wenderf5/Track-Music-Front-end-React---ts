@@ -1,5 +1,10 @@
+//CSS
 import style from './index.module.css';
+
+//Hooks
 import { useState } from 'react';
+
+//Components
 import { InputSearch } from '../../components/inputSearch';
 import { TopArtists } from './_components/topArtists';
 import { TopPlaylists } from './_components/topPlaylists';
