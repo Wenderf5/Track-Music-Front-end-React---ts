@@ -2,7 +2,7 @@ import style from './index.module.css';
 import { useContext } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';
 
-import capa from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg'
+import capa from '../../assets/img/Capas/500x500-000000-80-0-0 (5).jpg';
 
 export function InfoMusic() {
     const currentMusicContext = useContext(CurrentMusicContext);

@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from 'react';
 import { MusicsContext } from '../../context/musicsContext';
 import { Search } from 'lucide-react';
 import { useDebounce } from '../../hooks/useDebounce';
-//import { interfaceMusics } from '../../types/musics';
 
 interface props {
     searchIsVisible: boolean;

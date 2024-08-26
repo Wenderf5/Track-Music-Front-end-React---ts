@@ -1,6 +1,6 @@
 import style from './index.module.css';
 import { useState } from 'react';
-import { InputSearch } from '../../components/Search';
+import { InputSearch } from '../../components/InputSearch';
 import { TopArtists } from './_components/TopArtists';
 import { TopPlaylists } from './_components/TopPlaylists';
 import { TopMusics } from './_components/TopMusics';
