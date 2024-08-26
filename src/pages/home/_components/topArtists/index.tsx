@@ -1,8 +1,8 @@
 import style from './index.module.css';
 import { useState, useEffect } from 'react';
-import { Artists } from './_components/Artists';
+import { Artists } from './_components/artists';
 import { interfaceTopArtist } from '../../../../types/topArtist';
-import { Loading } from '../../../../components/Loading';
+import { Loading } from '../../../../components/loading';
 import { Link } from 'react-router-dom';
 
 export function TopArtists() {

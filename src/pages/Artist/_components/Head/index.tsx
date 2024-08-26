@@ -5,7 +5,7 @@ import style from './index.module.css';
 import { interfaceArtist } from '../../../../types/artist';
 
 //Components
-import { Button } from './_components/Button';
+import { Button } from './_components/button';
 import { Link } from 'react-router-dom';
 
 interface props {

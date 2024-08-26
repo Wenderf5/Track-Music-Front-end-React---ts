@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { Button } from './_components/Button';
+import { Button } from './_components/button';
 import { interfaceMusics } from '../../types/musics';
 import { useContext, useEffect, useState } from 'react';
 import { CurrentMusicContext } from '../../context/currentMusic';

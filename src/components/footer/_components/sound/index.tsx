@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import { CurrentMusicContext } from '../../../../context/currentMusic';
 import Slider from '@mui/material/Slider';
 import { Volume2, VolumeX } from 'lucide-react';
-import { Button } from './_components/Button';
+import { Button } from './_components/button';
 
 export function Sound() {
     const currentMusicContext = useContext(CurrentMusicContext);

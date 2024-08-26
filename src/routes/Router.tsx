@@ -3,9 +3,9 @@ import { MusicsContextProvider } from "../context/musicsContext";
 import { CurrentMusicContextProvider } from "../context/currentMusic";
 
 import { App } from "../App";
-import { Home } from "../pages/Home";
-import { Artist } from "../pages/Artist";
-import { Playlist } from "../pages/Playlist";
+import { Home } from "../pages/home";
+import { Artist } from "../pages/artist";
+import { Playlist } from "../pages/playlist";
 
 export const router = createBrowserRouter([
     {

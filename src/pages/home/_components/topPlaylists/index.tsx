@@ -1,8 +1,8 @@
 import style from './index.module.css';
 import { useEffect, useState } from 'react';
 import { interfaceTopPlaylists } from '../../../../types/topPlaylists';
-import { Playlists } from './_components/Playlists';
-import { Loading } from '../../../../components/Loading';
+import { Playlists } from './_components/playlists';
+import { Loading } from '../../../../components/loading';
 import { Link } from 'react-router-dom';
 
 export function TopPlaylists() {

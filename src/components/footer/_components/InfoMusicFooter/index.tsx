@@ -1,7 +1,7 @@
 import style from './index.module.css';
 import { useContext } from 'react';
 import { CurrentMusicContext } from '../../../../context/currentMusic';
-import { Button } from './_components/Button';
+import { Button } from './_components/button';
 //import iconPause from '../../../../assets/icons/pause.png';
 import iconPlay from '../../../../assets/icons/play.png';
 

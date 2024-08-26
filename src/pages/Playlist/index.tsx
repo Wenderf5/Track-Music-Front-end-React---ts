@@ -10,11 +10,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 //Components
-import { Footer } from '../../components/Footer';
-import { InfoMusic } from '../../components/InfoMusic';
-import { Head } from './_components/Head';
-import { Music } from '../../components/Music';
-import { Loading } from '../../components/Loading';
+import { Footer } from '../../components/footer';
+import { InfoMusic } from '../../components/infoMusic';
+import { Head } from './_components/head';
+import { Music } from '../../components/music';
+import { Loading } from '../../components/loading';
 
 export function Playlist() {
     const { id } = useParams<{ id: string }>();

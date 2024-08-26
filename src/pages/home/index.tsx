@@ -1,12 +1,12 @@
 import style from './index.module.css';
 import { useState } from 'react';
-import { InputSearch } from '../../components/InputSearch';
-import { TopArtists } from './_components/TopArtists';
-import { TopPlaylists } from './_components/TopPlaylists';
-import { TopMusics } from './_components/TopMusics';
-import { InfoMusic } from '../../components/InfoMusic';
-import { SearchMusic } from '../../components/SearchMusic';
-import { Footer } from '../../components/Footer';
+import { InputSearch } from '../../components/inputSearch';
+import { TopArtists } from './_components/topArtists';
+import { TopPlaylists } from './_components/topPlaylists';
+import { TopMusics } from './_components/topMusics';
+import { InfoMusic } from '../../components/infoMusic';
+import { SearchMusic } from '../../components/searchMusic';
+import { Footer } from '../../components/footer';
 
 export function Home() {
     const [searchIsVisible, setSearchIsVisible] = useState(false);

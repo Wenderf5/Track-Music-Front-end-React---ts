@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { Music } from '../Music';
+import { Music } from '../music';
 import { useContext } from 'react';
 import { MusicsContext } from '../../context/musicsContext';
 

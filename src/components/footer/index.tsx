@@ -1,7 +1,7 @@
 import style from './index.module.css';
-import { InfoMusicFooter } from './_components/InfoMusicFooter';
-import { Multimidia } from './_components/Multimidia';
-import { Sound } from './_components/Sound';
+import { InfoMusicFooter } from './_components/infoMusicFooter';
+import { Multimidia } from './_components/multimidia';
+import { Sound } from './_components/sound';
 
 export function Footer() {
     return (
